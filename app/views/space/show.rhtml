@@ -15,3 +15,8 @@
   <% end %>
 </table>
 
+  <%= link_to "Create New Page",
+              :controller => "page",
+              :action => "new",
+              :space_id => @space.id %>
+
