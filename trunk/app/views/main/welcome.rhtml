@@ -1,0 +1,11 @@
+<p>Click on a space's name to see all the pages in the space.</p>
+<ul>
+  <% @spaces.each do |space| %> 
+  <li><%= link_to "#{space.name}",
+                  :controller => "space",
+                  :action     => "show",
+                  :id         => space.id %>
+  </li>
+  <% end %>
+</ul>
+

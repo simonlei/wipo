@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+first:
+  id: 1
+  space_id: 1
+  title: "ahasdf"
+another:
+  id: 2
+  space_id: 2
+  title: "fadfzcvzcѧϰ"
