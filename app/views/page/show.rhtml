@@ -1,0 +1,18 @@
+<% @page_title = @page.title %>
+
+<p><%= @page.title%> </p>
+<p>
+<%= @page.content %>
+</p>
+<table>
+  <tr>
+    <th>Comment</th>
+  </tr>
+  <% @page.comments.each do |comment| %> 
+  <tr>
+    <td>
+      <%= comment.content %>
+  </tr>
+  <% end %>
+</table>
+

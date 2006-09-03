@@ -1,0 +1,17 @@
+<p>All page in space: <%= @space.name %> </p>
+<table>
+  <tr>
+    <th>Page Title</th>
+    <th>Page Content</th>
+  </tr>
+  <% @space.pages.each do |page| %> 
+  <tr>
+    <td><%= link_to page.title, 
+               :controller => "page",
+               :action     => "show",
+               :id         => page.id %></td>
+    <td><%= page.content%></td>
+  </tr>
+  <% end %>
+</table>
+
