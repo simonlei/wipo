@@ -1,0 +1,18 @@
+<%= error_messages_for 'page' %>
+
+<!--[form:page]-->
+<p><label for="page_title">Title</label><br/>
+<%= text_field 'page', 'title'  %></p>
+
+<p><label for="page_content">Content</label><br/>
+<%= text_field 'page', 'content'  %></p>
+
+<p><label for="page_created_at">Created at</label><br/>
+<%= datetime_select 'page', 'created_at'  %></p>
+
+<p><label for="page_updated_at">Updated at</label><br/>
+<%= datetime_select 'page', 'updated_at'  %></p>
+
+<%= hidden_field "page", "space_id" %>
+<!--[eoform:page]-->
+
