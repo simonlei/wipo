@@ -54,12 +54,13 @@ module CalendarHelper
     raise ArgumentError, "No month given" unless defined? options[:month]
 
     block                        ||= Proc.new {|d| nil}
-    options[:table_class       ] ||= "calendar"
+    options[:table_class       ] ||= "Calendar"
     options[:month_name_class  ] ||= "monthName"
     options[:other_month_class ] ||= "otherMonth"
     options[:day_name_class    ] ||= "dayName"
     options[:day_class         ] ||= "day"
     options[:abbrev            ] ||= (0..2)
+    options[:show_week_link    ] ||= false
 
     first = Date.civil(options[:year], options[:month], 1)
     last = Date.civil(options[:year], options[:month], -1)
@@ -110,7 +111,8 @@ EOF
 	</thead>
 	<tbody>
 		<tr>"
-    cal << "<td>#{show_week_link(first)}</td>" 
+    show_week_link = show_week_link(first, options[:show_week_link])
+    cal << "<td>#{show_week_link}</td>" 
     0.upto(first.wday - 1) {|d| cal << "			<td class='#{options[:other_month_class]}'></td>"} unless first.wday == 0
     first.upto(last) do |cur|
       cell_text, cell_attrs = block.call(cur)
@@ -119,13 +121,15 @@ EOF
       cell_attrs = cell_attrs.map {|k, v| "#{k}='#{v}'"}.join(' ')
       cal << "			<td #{cell_attrs}>#{cell_text}</td>"
       cal << "		</tr>\n		<tr>" if cur.wday == 6
-      cal << "<td>#{show_week_link(cur+1)}</td>" if cur.wday == 6 and cur!=last
+      show_week_link = show_week_link(cur+1, options[:show_week_link])
+      cal << "<td>#{show_week_link}</td>" if cur.wday == 6 and cur!=last
     end
     last.wday.upto(5) {|d| cal << "			<td class='#{options[:other_month_class]}'></td>"} unless last.wday == 6
     cal << "		</tr>\n	</tbody>\n</table>"
   end
 
-  def show_week_link(day)
+  def show_week_link(day, show_link)
+    return "W" + day.week.to_s if !show_link
     return link_to( "W" + day.week.to_s, 
 		      :controller => controller.controller_name, 
 		      :action => controller.action_name, 
