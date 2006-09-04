@@ -1,4 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
+  # ActiveRbac's RegistrationController confirmation action needs a special route
+  map.connect '/active_rbac/registration/confirm/:user/:token', 
+            :controller => 'active_rbac/registration', 
+            :action => 'confirm'
+
   # The priority is based upon order of creation: first created -> highest priority.
   
   # Sample of regular route:

@@ -51,3 +51,10 @@ end
 # end
 
 # Include your application configuration below
+module ActiveRbacConfig
+  # controller and layout configuration
+  config :controller_layout, "base"
+end
+
+Engines.start :active_rbac
+
