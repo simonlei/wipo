@@ -10,4 +10,16 @@ class ApplicationController < ActionController::Base
   # The application controller will give us the "current_user" method.
   include ActiveRbacMixins::ApplicationControllerMixin
 
+  before_filter :protect_controller, :except => [ :list, :index, :show, :welcome, :login]
+  
+  def protect_controller 
+    if current_user.has_role?("Admin")
+      return true
+    else 
+      redirect_to "/main/welcome"
+      flash[:notice] = "You are not allowed to access this page" 
+      return false 
+    end 
+  end
+
 end
