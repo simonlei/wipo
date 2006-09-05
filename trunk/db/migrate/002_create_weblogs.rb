@@ -1,4 +1,4 @@
-class CreatePages < ActiveRecord::Migration
+class CreateWeblogs < ActiveRecord::Migration
   def self.up
     create_table :weblogs do |t|
       t.column "title", :string, :null => false

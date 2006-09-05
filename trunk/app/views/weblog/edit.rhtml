@@ -1,9 +1,9 @@
-<h1>Editing page</h1>
+<h1>Editing weblog</h1>
 
-<%= start_form_tag :action => 'update', :id => @page %>
+<%= start_form_tag :action => 'update', :id => @weblog%>
   <%= render :partial => 'form' %>
   <%= submit_tag 'Edit' %>
 <%= end_form_tag %>
 
-<%= link_to 'Show', :action => 'show', :id => @page %> |
+<%= link_to 'Show', :action => 'show', :id => @weblog%> |
 <%= link_to 'Back', :action => 'list' %>

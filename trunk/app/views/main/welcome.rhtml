@@ -26,7 +26,7 @@ end
             <% @weblogs.each do |weblog| %>
 	    <tr valign="top">
               <td>
-                <%= link_to weblog.title, :controller => "page", :action => "show", :id => weblog.id %>
+                <%= link_to weblog.title, :controller => "weblog", :action => "show", :id => weblog.id %>
                 <br/>
                 <span class="smalltext">
                   <span><%= weblog.user.login %></span>(<span><%= weblog.created_at.to_date.to_s %></span>)
@@ -68,7 +68,7 @@ end
           <% prev_date = blog.log_date%>
           <div class="EntryBox">
             <div class="EntryTitle">
-              <%= link_to h(blog.title), :controller=>"page", :action=>"show", :id=>blog %>
+              <%= link_to h(blog.title), :controller=>"weblog", :action=>"show", :id=>blog %>
             </div> 
             <div class="EntryContent"><%= h(blog.content) %><p/>
             </div>

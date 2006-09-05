@@ -1,22 +1,22 @@
-<p>All page in space: <%= @space.name %> </p>
+<p>All weblog in space: <%= @space.name %> </p>
 <table>
   <tr>
     <th>Page Title</th>
     <th>Page Content</th>
   </tr>
-  <% @space.pages.each do |page| %> 
+  <% @space.weblogs.each do |weblog| %> 
   <tr>
-    <td><%= link_to page.title, 
-               :controller => "page",
+    <td><%= link_to weblog.title, 
+               :controller => "weblog",
                :action     => "show",
-               :id         => page.id %></td>
-    <td><%= page.content%></td>
+               :id         => weblog.id %></td>
+    <td><%= weblog.content%></td>
   </tr>
   <% end %>
 </table>
 
   <%= link_to "Create New Page",
-              :controller => "page",
+              :controller => "weblog",
               :action => "new",
               :space_id => @space.id %>
 
