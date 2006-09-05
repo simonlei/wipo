@@ -57,4 +57,4 @@ module ActiveRbacConfig
 end
 
 Engines.start :active_rbac
-
+Engines.start :wiki
