@@ -1,29 +1,29 @@
-class PageController < ApplicationController
-  scaffold :page
+class WeblogController < ApplicationController
+  scaffold :weblog
 
   def show
-    @page = Page.find( params[:id])
-    @comments = @page.comments
+    @weblog = Weblog.find( params[:id])
+    @comments = @weblog.comments
   end
 
   def comment
     comment = Comment.new( params[:comment])
     comment.user_id = current_user.id
-    page = Page.find( params[:id]).add_comment comment
+    weblog = Weblog.find( params[:id]).add_comment comment
     redirect_to :action => "show", :id => params[:id]
   end
 
   def new
-    @page = Page.new
-    @page.space_id = params[:space_id]
+    @weblog = Weblog.new
+    @weblog.space_id = params[:space_id]
     render_scaffold
   end
 
   def create
-    @page = Page.new(params[:page])
-    @page.user_id = current_user.id
-    if @page.save
-      flash[:notice] = "Page was successfully created"
+    @weblog = Weblog.new(params[:weblog])
+    @weblog.user_id = current_user.id
+    if @weblog.save
+      flash[:notice] = "Weblog was successfully created"
       redirect_to :action => "list"
     else
       render_scaffold('new')

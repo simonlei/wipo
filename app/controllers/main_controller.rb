@@ -6,7 +6,7 @@ class MainController < ApplicationController
     today = Date.today
     @year = params[:year] || today.year
     @month = params[:month] || today.month
-    @weblogs = Page.find :all, :limit=>20, :order => 'created_at DESC'
+    @weblogs = Weblog.find :all, :limit=>20, :order => 'created_at DESC'
     @weblogs_by_day = sort_weblogs_by_day( @weblogs)
   end
 

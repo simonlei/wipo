@@ -1,4 +1,4 @@
-class Page < ActiveRecord::Base
+class Weblog < ActiveRecord::Base
   belongs_to :space
   belongs_to :user
   acts_as_commentable

@@ -1,18 +1,18 @@
-<%= error_messages_for 'page' %>
+<%= error_messages_for 'weblog' %>
 
-<!--[form:page]-->
-<p><label for="page_title">Title</label><br/>
-<%= text_field 'page', 'title'  %></p>
+<!--[form:weblog]-->
+<p><label for="weblog_title">Title</label><br/>
+<%= text_field 'weblog', 'title'  %></p>
 
-<p><label for="page_content">Content</label><br/>
-<%= text_field 'page', 'content'  %></p>
+<p><label for="weblog_content">Content</label><br/>
+<%= text_field 'weblog', 'content'  %></p>
 
-<p><label for="page_created_at">Created at</label><br/>
-<%= datetime_select 'page', 'created_at'  %></p>
+<p><label for="weblog_created_at">Created at</label><br/>
+<%= datetime_select 'weblog', 'created_at'  %></p>
 
-<p><label for="page_updated_at">Updated at</label><br/>
-<%= datetime_select 'page', 'updated_at'  %></p>
+<p><label for="weblog_updated_at">Updated at</label><br/>
+<%= datetime_select 'weblog', 'updated_at'  %></p>
 
-<%= hidden_field "page", "space_id" %>
-<!--[eoform:page]-->
+<%= hidden_field "weblog", "space_id" %>
+<!--[eoform:weblog]-->
 
