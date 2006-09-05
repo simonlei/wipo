@@ -29,7 +29,7 @@ end
                 <%= link_to weblog.title, :controller => "page", :action => "show", :id => weblog.id %>
                 <br/>
                 <span class="smalltext">
-                  <span>SkyYin</span>(<span>9月2日</span>)
+                  <span><%= weblog.user.login %></span>(<span><%= weblog.created_at.to_date.to_s %></span>)
                 </span>
               </td>
             </tr>
@@ -74,7 +74,7 @@ end
             </div>
             <div class="EntryDesc" style="text-align: right;">
               <span><%= h(blog.created_at) %></span> | <!--<img src="resources/wipo/user" align="absmiddle">-->
-	      <strong><span>SkyYin</span></strong> |
+              <strong><span><%= blog.user.login %></span></strong> |
               <%= image_tag "comment.gif", :align=>"absmiddle" %>
               <span>共<%= blog.comments.size %>条留言</span>
             </div>

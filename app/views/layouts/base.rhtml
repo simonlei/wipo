@@ -22,7 +22,7 @@
       <div class="cleared">&nbsp;</div>
     </div>
     <div class="loginBox">
-      <% if current_user.nil? %>
+      <% if current_user.is_anonymous? %>
         <%= link_to "现在登录", :controller => "/active_rbac/login" %>
       <% else %>
         用户: <span><%= current_user.login %></span>  
