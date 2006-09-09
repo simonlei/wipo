@@ -70,10 +70,10 @@ end
             <div class="EntryTitle">
               <%= link_to h(blog.title), :controller=>"weblog", :action=>"show", :id=>blog %>
             </div> 
-            <div class="EntryContent"><%= h(blog.content) %><p/>
+            <div class="EntryContent"><%= markup (blog.content) %>
             </div>
             <div class="EntryDesc" style="text-align: right;">
-              <span><%= h(blog.created_at) %></span> | <!--<img src="resources/wipo/user" align="absmiddle">-->
+              <span><%= time_to_str blog.created_at %></span> | <!--<img src="resources/wipo/user" align="absmiddle">-->
               <strong><span><%= blog.user.login %></span></strong> |
               <%= image_tag "comment.gif", :align=>"absmiddle" %>
               <span>π≤<%= blog.comments.size %>Ãı¡Ù—‘</span>

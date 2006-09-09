@@ -10,7 +10,7 @@
                :controller => "weblog",
                :action     => "show",
                :id         => weblog.id %></td>
-    <td><%= weblog.content%></td>
+    <td><%= markup weblog.content%></td>
   </tr>
   <% end %>
 </table>

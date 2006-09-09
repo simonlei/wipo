@@ -1,18 +1,30 @@
 <%= error_messages_for 'weblog' %>
 
-<!--[form:weblog]-->
-<p><label for="weblog_title">Title</label><br/>
-<%= text_field 'weblog', 'title'  %></p>
 
-<p><label for="weblog_content">Content</label><br/>
-<%= text_field 'weblog', 'content'  %></p>
 
-<p><label for="weblog_created_at">Created at</label><br/>
-<%= datetime_select 'weblog', 'created_at'  %></p>
+  <table cellspacing='0' cellpadding='0' class="boxDiv">
+    <tr><th colspan="2" class='formtitle' align='left'>标题</th></tr>
+    <tr><td colspan="2">
+        <input value="<%= @weblog.title%>" type="text" size="40" name="title"/></td></tr>
+    <tr><th colspan="2" class="formtitle">内容</th></tr>
+    <tr><td colspan="2">
+        <% =textarea "
+        <textarea cols="100" rows="20" style="width:100%; height:200px;" name="content">
+          <%= @weblog.content %>
+        </textarea>
+    </td></tr>
+    <!--
+    <tr><th colspan="2" class="formtitle">标记</th></tr>
+    <tr><td colspan="2">
+        <textarea cols="100" rows="3" style="width:100%; height:50px;" name="tags"></textarea>
+    </td></tr>
+    -->
+    <%= hidden_field "weblog", "space_id" %>
+    <tr><td colspan="2" align='center'>
+        <input value="更新" type="submit" name="update"/>
+        <input value="取消" type="submit" name="cancel"/>
+        <input value="预览" type="submit" name="preview"/>
+    </td></tr>
+  </table>
 
-<p><label for="weblog_updated_at">Updated at</label><br/>
-<%= datetime_select 'weblog', 'updated_at'  %></p>
-
-<%= hidden_field "weblog", "space_id" %>
-<!--[eoform:weblog]-->
 
