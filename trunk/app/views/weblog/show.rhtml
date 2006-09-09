@@ -1,19 +1,81 @@
-<% for column in Weblog.content_columns %>
-<p>
-  <b><%= column.human_name %>:</b> <%=h @weblog.send(column.name) %>
-</p>
-<% end %>
+<table cellspacing="0">
+  <tr>
+    <td rowspan="2">
+      <%= image_tag "blog.gif", :border => 0 %>
+    </td>
+    <td class="smalltext"><%= @weblog.user.login %></td>
+  </tr>
+  <tr>
+    <td class="pagetitle" style="text-decoration: none"><%= @weblog.title %></td>
+  </tr>
+</table>
 
-<%= link_to 'Edit', :action => 'edit', :id => @weblog %> |
-<%= link_to 'Back', :action => 'list' %>
+<div>
+  <div class="greynavbar">
+    <span style="float:right; padding: 6px 10px 4px 0px">
+      <a href="/jspwiki/pages/org/wipo/web/pages/SpaceHome?spaceId=4">浏览空间</a>
+      &nbsp;
+      <a href="/jspwiki/pages/addwiki?spaceId=4">添加wiki页</a>
+      &nbsp;
+      <a href="/jspwiki/pages/addblog?spaceId=4">添加blog页</a>
+    </span>
+    <ul id="foldertab" style="margin-bottom: 0px; padding-top: 10px;">
+      <li>
+      <a href="/jspwiki/pages/viewblog?id=2633" id="current"><span>查看(<u>V</u>)</span></a>
+      </li><li>
+      <%= link_to '<span>修改(<u>E</u>)</span>', :action => 'edit', :id => @weblog %> 
+      </li><li>
+      <a href="/jspwiki/pages/viewattachments?id=2633" accessKey="a"><span>附件(<u>A</u>) - 0</span></a>
+      </li>
+    </ul>
+  </div>
+</div>
 
-<% @comments.each do |comment| %>
-  <%= comment.title %>
-  <%= comment.comment %>
-<% end %>
+<div id="SingleContent">
+  <span>
+    <span>
+      <div style="float:right">
+      </div>
+      <div class="EntryDesc">本页面由 <%= @weblog.user.login %> 创建于 <%= time_to_str @weblog.created_at %> </div>
+      <div class="cleared">&nbsp;</div>
 
-<%= form_tag :action => "comment", :id => @weblog.id %>
-  <%= text_field "comment", "title" %><br/>
-  <%= text_area "comment", "comment" %><br/>
-  <%= submit_tag "Comment" %>
-</form>
+      <div class="EntryContent">
+        <%= markup @weblog.content %>
+      </div>
+    </span>
+  </span>
+
+  <div class="tabletitle" style="border: 0px">
+    <a name="comments">留言</a>
+  </div>
+  <span>
+    <% if @weblog.comments.size != 0 %>
+    <div class="CommentBox">
+      <div>
+        <% @comments.each do |comment| %>
+        <div class="CommentDesc"> 
+          <%= comment.user.login %> 留言于 <%= time_to_str comment.created_at%>。</div>
+          <div class="CommentContent">
+            <%= comment.comment %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </span>
+
+  <div class="add-comment">
+    请写下您的留言
+    <%= form_tag :action => "comment", :id => @weblog.id %>
+      <%= text_area "comment", "comment", "cols"=>60, "rows"=>5 %><br/>
+      <%= submit_tag "添加" %>
+    </form>
+  </div>
+</div>
+
+
+</div>
+
+
+
+

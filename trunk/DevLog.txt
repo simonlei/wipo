@@ -1,0 +1,15 @@
+Sep.05,2006
+Add the active_rbac support
+Add the acts_as_comment support
+Install the RedCloth
+
+Sep.06,2006
+Add the wiki_engine support
+
+Sep.09,2006
+Remove the wiki_engine support, decide to write a wiki by myself.
+
+TODO:
+Add the support of attachment
+Add the support of label/tag
+Add the support of page view counter

@@ -2,10 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <title><%= @page_title || "WikiPortal" %></title>
-  <%= stylesheet_link_tag 'layout' %>
-  <%= engine_stylesheet 'wiki' %>
-  <%= javascript_include_tag :defaults %>
   <%= content_tag "style", @style_additions, :type => "text/css" %>
+  <%= stylesheet_link_tag 'layout' %>
+  <%= javascript_include_tag :defaults %>
 </head>
 <body>
   <div id="Header">
@@ -23,12 +22,14 @@
       </div>
       <div class="cleared">&nbsp;</div>
     </div>
+    <!--
       <form class="navigation" id="navigationForm">
         <%= link_to_unless(@page && @page.title == "Home Page", "Home Page", home_url)  { content_tag('b', "Home Page", 'class' => 'navOn') } %> |
         <%= link_to_unless(@title == "All Pages", "All Pages", pages_url) { content_tag('b', "All Pages", 'class' => 'navOn') } %> |
         <%= link_to_unless(@title == "Recently Revised", "Recently Revised", recent_url) { content_tag('b', "Recently Revised", 'class' => 'navOn') } %> |
         <%= link_to("Feed", feed_url) %>
       </form>
+      -->
 
     <div class="loginBox">
       <% if current_user.is_anonymous? %>

@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     if current_user.has_role?("Admin")
       return true
     else 
-      redirect_to "/main/welcome"
+      redirect_to "/active_rbac/login/"
       flash[:notice] = "You are not allowed to access this page" 
       return false 
     end 
