@@ -3,29 +3,30 @@
     <td rowspan="2">
       <%= image_tag "blog.gif", :border => 0 %>
     </td>
-    <td class="smalltext"><%= @weblog.user.login %></td>
+    <td class="smalltext"><%= @page.user.login %></td>
   </tr>
   <tr>
-    <td class="pagetitle" style="text-decoration: none"><%= @weblog.title %></td>
+    <td class="pagetitle" style="text-decoration: none"><%= @page.title %></td>
   </tr>
 </table>
 
 <div>
   <div class="greynavbar">
     <span style="float:right; padding: 6px 10px 4px 0px">
-      <a href="/jspwiki/pages/org/wipo/web/pages/SpaceHome?spaceId=4">浏览空间</a>
+      <%= link_to "浏览空间", :controller => "space", :action => "show", :id => @page.space %>
       &nbsp;
-      <a href="/jspwiki/pages/addwiki?spaceId=4">添加wiki页</a>
+      <%= link_to "添加wiki页", :controller => "page", :action => "new", :space_id => @page.space %>
       &nbsp;
-      <a href="/jspwiki/pages/addblog?spaceId=4">添加blog页</a>
+      <%= link_to "添加blog页", :controller => "page", :action => "new", :space_id => @page.space %>
     </span>
     <ul id="foldertab" style="margin-bottom: 0px; padding-top: 10px;">
       <li>
       <a href="/jspwiki/pages/viewblog?id=2633" id="current"><span>查看(<u>V</u>)</span></a>
       </li><li>
-      <%= link_to '<span>修改(<u>E</u>)</span>', :action => 'edit', :id => @weblog %> 
+      <%= link_to '<span>修改(<u>E</u>)</span>', :action => 'edit', :id => @page %> 
       </li><li>
-      <a href="/jspwiki/pages/viewattachments?id=2633" accessKey="a"><span>附件(<u>A</u>) - 0</span></a>
+      <%= link_to "<span>附件(<u>A</u>) - " + @page.attachments.size.to_s + "</span>", 
+          :controller => "attachment", :action => "list", :page_id=> @page %>
       </li>
     </ul>
   </div>
@@ -36,11 +37,11 @@
     <span>
       <div style="float:right">
       </div>
-      <div class="EntryDesc">本页面由 <%= @weblog.user.login %> 创建于 <%= time_to_str @weblog.created_at %> </div>
+      <div class="EntryDesc">本页面由 <%= @page.user.login %> 创建于 <%= time_to_str @page.created_at %> </div>
       <div class="cleared">&nbsp;</div>
 
       <div class="EntryContent">
-        <%= markup @weblog.content %>
+        <%= markup @page %>
       </div>
     </span>
   </span>
@@ -49,7 +50,7 @@
     <a name="comments">留言</a>
   </div>
   <span>
-    <% if @weblog.comments.size != 0 %>
+    <% if @page.comments.size != 0 %>
     <div class="CommentBox">
       <div>
         <% @comments.each do |comment| %>
@@ -66,7 +67,7 @@
 
   <div class="add-comment">
     请写下您的留言
-    <%= form_tag :action => "comment", :id => @weblog.id %>
+    <%= form_tag :action => "comment", :id => @page.id %>
       <%= text_area "comment", "comment", "cols"=>60, "rows"=>5 %><br/>
       <%= submit_tag "添加" %>
     </form>

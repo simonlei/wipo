@@ -10,6 +10,7 @@ Sep.09,2006
 Remove the wiki_engine support, decide to write a wiki by myself.
 
 TODO:
+Add the support of preview
 Add the support of attachment
 Add the support of label/tag
 Add the support of page view counter
