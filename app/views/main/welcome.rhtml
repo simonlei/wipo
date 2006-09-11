@@ -23,13 +23,13 @@ end
         <div class="sitebar">
           <div class="sidebarHeader"> ¸üĞÂ </div> 
 	  <table class="sidebarContent" cellpadding="0" cellspacing="0" border="0">
-            <% @weblogs.each do |weblog| %>
+            <% @weblogs.each do |page| %>
 	    <tr valign="top">
               <td>
-                <%= link_to weblog.title, :controller => "weblog", :action => "show", :id => weblog.id %>
+                <%= link_to page.title, :controller => "page", :action => "show", :id => page.id %>
                 <br/>
                 <span class="smalltext">
-                  <span><%= weblog.user.login %></span>(<span><%= weblog.created_at.to_date.to_s %></span>)
+                  <span><%= page.user.login %></span>(<span><%= page.created_at.to_date.to_s %></span>)
                 </span>
               </td>
             </tr>
@@ -68,9 +68,9 @@ end
           <% prev_date = blog.log_date%>
           <div class="EntryBox">
             <div class="EntryTitle">
-              <%= link_to h(blog.title), :controller=>"weblog", :action=>"show", :id=>blog %>
+              <%= link_to h(blog.title), :controller=>"page", :action=>"show", :id=>blog %>
             </div> 
-            <div class="EntryContent"><%= markup (blog.content) %>
+            <div class="EntryContent"><%= markup(blog) %>
             </div>
             <div class="EntryDesc" style="text-align: right;">
               <span><%= time_to_str blog.created_at %></span> | <!--<img src="resources/wipo/user" align="absmiddle">-->

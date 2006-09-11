@@ -22,14 +22,6 @@
       </div>
       <div class="cleared">&nbsp;</div>
     </div>
-    <!--
-      <form class="navigation" id="navigationForm">
-        <%= link_to_unless(@page && @page.title == "Home Page", "Home Page", home_url)  { content_tag('b', "Home Page", 'class' => 'navOn') } %> |
-        <%= link_to_unless(@title == "All Pages", "All Pages", pages_url) { content_tag('b', "All Pages", 'class' => 'navOn') } %> |
-        <%= link_to_unless(@title == "Recently Revised", "Recently Revised", recent_url) { content_tag('b', "Recently Revised", 'class' => 'navOn') } %> |
-        <%= link_to("Feed", feed_url) %>
-      </form>
-      -->
 
     <div class="loginBox">
       <% if current_user.is_anonymous? %>

@@ -3,7 +3,6 @@
 require_dependency "#{RAILS_ROOT}/vendor/plugins/active_rbac/app/helpers/rbac_helper"
 
 class ApplicationController < ActionController::Base
-  include Wiki
   helper RbacHelper
 
   layout "base"
