@@ -1,0 +1,25 @@
+
+<div class="pagebody">
+  <div class="greynavbar">
+    <span style="float:right; padding: 6px 10px 4px 0px">
+      <a href="/jspwiki/pages/org/wipo/web/pages/SpaceHome?spaceId=4">浏览空间</a>
+      &nbsp;
+      <a href="/jspwiki/pages/addwiki?spaceId=4">添加wiki页</a>
+      &nbsp;
+      <a href="/jspwiki/pages/addblog?spaceId=4">添加blog页</a>
+    </span>
+    <ul id="foldertab" style="margin-bottom: 0px; padding-top: 10px;">
+      <li>
+      <%= link_to_unless_current "<span>查看(<u>V</u>)</span>", {:controller=>"page", :action=>"show", :id=>@page},
+          :id => "notcurrent" %>
+      </li><li>
+      <%= link_to_unless_current "<span>修改(<u>E</u>)</span>", {:controller=>"page", :action=>"edit", :id=>@page},
+          :id => "notcurrent" %>
+      </li><li>
+      <%= link_to_unless_current "<span>附件(<u>A</u>) - " + @page.attachments.size.to_s + "</span>", 
+          {:controller=>"attachment", :action=>"list", :id=>@page}, :id => "notcurrent" %>
+      </li>
+    </ul>
+  </div>
+</div>
+
