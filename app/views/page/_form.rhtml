@@ -1,30 +1,20 @@
-<%= error_messages_for 'weblog' %>
-
-
+  <%= error_messages_for 'weblog' %>
 
   <table cellspacing='0' cellpadding='0' class="boxDiv">
     <tr><th colspan="2" class='formtitle' align='left'>标题</th></tr>
     <tr><td colspan="2">
-        <input value="<%= @weblog.title%>" type="text" size="40" name="title"/></td></tr>
+        <%= text_field 'page', 'title', :size=>40 %>
+    </td></tr>
     <tr><th colspan="2" class="formtitle">内容</th></tr>
     <tr><td colspan="2">
-        <% =textarea "
-        <textarea cols="100" rows="20" style="width:100%; height:200px;" name="content">
-          <%= @weblog.content %>
-        </textarea>
+        <%= text_area 'page', 'content', :cols=>100, :rows=>20, :style=>'width:100%; height:200px;' %>
     </td></tr>
-    <!--
-    <tr><th colspan="2" class="formtitle">标记</th></tr>
-    <tr><td colspan="2">
-        <textarea cols="100" rows="3" style="width:100%; height:50px;" name="tags"></textarea>
-    </td></tr>
-    -->
-    <%= hidden_field "weblog", "space_id" %>
+    <%= hidden_field "page", "space_id" %>
     <tr><td colspan="2" align='center'>
-        <input value="更新" type="submit" name="update"/>
-        <input value="取消" type="submit" name="cancel"/>
-        <input value="预览" type="submit" name="preview"/>
+      <%= submit_tag '更新' %>
+      <%= submit_tag '取消', :onclick => "form.action='" + 
+          url_for(:action=>'show', :id=>@page) + "';form.method='get';form.submit()" %>
+      <input value="预览" type="submit" name="preview"/>
     </td></tr>
   </table>
-
 

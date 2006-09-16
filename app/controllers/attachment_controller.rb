@@ -2,6 +2,7 @@ class AttachmentController < ApplicationController
   scaffold :attachment
 
   def list
-    @attachments = Page.find(params[:page_id]).attachments
+    @page = Page.find( params[:id])
+    @attachments = @page.attachments
   end
 end

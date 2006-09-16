@@ -4,7 +4,7 @@
     <th>Page Title</th>
     <th>Page Content</th>
   </tr>
-  <% @space.weblogs.each do |weblog| %> 
+  <% @space.pages.each do |weblog| %> 
   <tr>
     <td><%= link_to weblog.title, 
                :controller => "weblog",
@@ -16,7 +16,7 @@
 </table>
 
   <%= link_to "Create New Page",
-              :controller => "weblog",
+              :controller => "page",
               :action => "new",
               :space_id => @space.id %>
 
