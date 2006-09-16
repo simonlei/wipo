@@ -10,27 +10,7 @@
   </tr>
 </table>
 
-<div>
-  <div class="greynavbar">
-    <span style="float:right; padding: 6px 10px 4px 0px">
-      <%= link_to "浏览空间", :controller => "space", :action => "show", :id => @page.space %>
-      &nbsp;
-      <%= link_to "添加wiki页", :controller => "page", :action => "new", :space_id => @page.space %>
-      &nbsp;
-      <%= link_to "添加blog页", :controller => "page", :action => "new", :space_id => @page.space %>
-    </span>
-    <ul id="foldertab" style="margin-bottom: 0px; padding-top: 10px;">
-      <li>
-      <a href="/jspwiki/pages/viewblog?id=2633" id="current"><span>查看(<u>V</u>)</span></a>
-      </li><li>
-      <%= link_to '<span>修改(<u>E</u>)</span>', :action => 'edit', :id => @page %> 
-      </li><li>
-      <%= link_to "<span>附件(<u>A</u>) - " + @page.attachments.size.to_s + "</span>", 
-          :controller => "attachment", :action => "list", :page_id=> @page %>
-      </li>
-    </ul>
-  </div>
-</div>
+<%= render :partial => "header" %>
 
 <div id="SingleContent">
   <span>

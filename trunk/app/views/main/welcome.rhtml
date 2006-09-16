@@ -29,7 +29,7 @@ end
                 <%= link_to page.title, :controller => "page", :action => "show", :id => page.id %>
                 <br/>
                 <span class="smalltext">
-                  <span><%= page.user.login %></span>(<span><%= page.created_at.to_date.to_s %></span>)
+                  <span><%= page.user.login %></span>(<span><%= page.log_date %></span>)
                 </span>
               </td>
             </tr>

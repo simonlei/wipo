@@ -7,7 +7,7 @@ class Page < ActiveRecord::Base
   acts_as_commentable
 
   def log_date 
-    self.created_at.to_date
+    created_at.to_date unless created_at.nil?
   end
 
 end

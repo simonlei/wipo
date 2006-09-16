@@ -3,6 +3,6 @@ module ApplicationHelper
   include WikiHelper
 
   def time_to_str time
-    time.strftime "%Y年%m月%d日%H:%M"
+    time.strftime "%Y年%m月%d日%H:%M" unless time.nil?
   end
 end
