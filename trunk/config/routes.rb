@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
             :controller => 'active_rbac/registration', 
             :action => 'confirm'
 
-  map.connect '', :controller => "main", :action => "welcome"
+  map.connect '', :controller => "space", :action => "show"
             
   # The priority is based upon order of creation: first created -> highest priority.
   
