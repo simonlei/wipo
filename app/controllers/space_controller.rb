@@ -45,7 +45,8 @@ class SpaceController < ApplicationController
     @weblogs = Weblog.find :all, :conditions=>conditions, :limit=>20, :order => 'created_at DESC'
 
     # updates of all
-    @recent_updated=Page.find :all, :limit=>20, :order => 'updated_at DESC'
+    conditions = "space_id = #{params[:id]}" unless params[:id].nil?
+    @recent_updated=Page.find :all, :limit=>20, :order => 'updated_at DESC', :conditions=>conditions
     #@space = Space.find( params[:id])
   end
 end
