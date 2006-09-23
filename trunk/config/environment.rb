@@ -58,3 +58,9 @@ end
 
 Engines.start :active_rbac
 require 'redcloth_wipo'
+
+ATTACHMENT_DIR= File.join( RAILS_ROOT, "db", "attachments")
+KILO = 1024
+MILLION = KILO*KILO
+GIGA = MILLION*KILO
+
