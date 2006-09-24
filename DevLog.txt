@@ -11,9 +11,10 @@ Remove the wiki_engine support, decide to write a wiki by myself.
 
 Sep.24,2006
 Add the support of attachment
+Add the support of preview
 
 TODO:
 Add the support of mime of attachment for download
-Add the support of preview
 Add the support of label/tag
 Add the support of page view counter
+Migrate data from hsql

@@ -30,4 +30,9 @@ class PageController < ApplicationController
     end
   end
 
+  def preview
+    @preview_page = Page.new params[:page]
+    render :layout=>false
+  end
+
 end
