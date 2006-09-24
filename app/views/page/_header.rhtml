@@ -2,11 +2,11 @@
 <div class="pagebody">
   <div class="greynavbar">
     <span style="float:right; padding: 6px 10px 4px 0px">
-      <a href="/jspwiki/pages/org/wipo/web/pages/SpaceHome?spaceId=4">‰Ø¿¿ø’º‰</a>
+      <%= link_to '‰Ø¿¿ø’º‰', :controller=>'page', :action=>'list', :id=>@page.space_id %>
       &nbsp;
-      <a href="/jspwiki/pages/addwiki?spaceId=4">ÃÌº”wiki“≥</a>
+      <%= link_to 'ÃÌº”wiki“≥', :controller=>'page', :action=>'new', :space_id=>@page.space_id %>
       &nbsp;
-      <a href="/jspwiki/pages/addblog?spaceId=4">ÃÌº”blog“≥</a>
+      <%= link_to 'ÃÌº”blog“≥', :controller=>'page', :action=>'new', :space_id=>@page.space_id, :type=>'Weblog' %>
     </span>
     <ul id="foldertab" style="margin-bottom: 0px; padding-top: 10px;">
       <li>
