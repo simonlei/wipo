@@ -20,7 +20,7 @@ end
       </div>
       <!-- The Updates -->
       <span>
-        <div class="sitebar">
+        <div class="sidebar">
           <div class="sidebarHeader"> 更新 </div> 
 	  <table class="sidebarContent" cellpadding="0" cellspacing="0" border="0">
             <% @recent_updated.each do |page| %>
@@ -58,6 +58,27 @@ end
           </table>
         </div>
       </span>
+
+      <!-- space action -->
+      <% if @space %>
+      <span>
+        <div class="sidebar">
+          <div class="sidebarHeader"> 动作 </div> 
+<table class="sidebarContent" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top">
+    <td>
+      <%= link_to '浏览空间', :controller=>'page', :action=>'list', :id=>@space %><br/>
+      <% if can_have_action %>
+      <%= link_to '添加wiki页', :controller=>'page', :action=>'new', :space_id=>@space.id %><br/>
+        <%= link_to '添加blog页', :controller=>'page', :action=>'new', :space_id=>@space.id, :type=>'Weblog' %>
+      <% end %>
+    </td>
+  </tr>
+</table>
+        </div>
+      </span>
+      <% end %>
+
     </td> 
     <td valign='top' id='ContentBody'> 
       <span> 

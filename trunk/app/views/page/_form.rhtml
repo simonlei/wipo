@@ -10,6 +10,7 @@
         <%= text_area 'page', 'content', :cols=>100, :rows=>20, :style=>'width:100%; height:200px;' %>
     </td></tr>
     <%= hidden_field "page", "space_id" %>
+    <%= hidden_field "page", "type" %>
     <tr><td colspan="2" align='center'>
       <%= submit_tag '更新' %>
       <%= submit_tag '取消', :onclick => "form.action='" + 

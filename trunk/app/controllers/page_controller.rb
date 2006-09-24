@@ -14,17 +14,26 @@ class PageController < ApplicationController
   end
 
   def new
-    @page = Page.new
+    if params[:type] == 'Weblog'
+      @page = Weblog.new
+    else 
+      @page = Page.new
+    end
+
     @page.space_id = params[:space_id]
     render_scaffold
   end
 
   def create
-    @page = Page.new(params[:page])
+    if params[:page][:type] == 'Weblog'
+      @page = Weblog.new( params[:page])
+    else 
+      @page = Page.new(params[:page]) 
+    end
     @page.user_id = current_user.id
     if @page.save
       flash[:notice] = "page was successfully created"
-      redirect_to :action => "list"
+      redirect_to :controller=>'page', :action => "show", :id=>@page.id
     else
       render_scaffold('new')
     end
@@ -36,11 +45,16 @@ class PageController < ApplicationController
   end
 
   def feed
-    conditions = params[:query] if params[:query]
+    conditions = params[:query].sub(/space/,'space_id') if params[:query]
     conditions = " space_id = #{params[:id]} " if params[:id]
     @pages=Page.find(:all, :conditions=>conditions, :order=> "updated_at,created_at", :limit=>15)
     @headers["Content-Type"] = "application/rss+xml"
     render :layout=>false
   end
 
+  def list
+    @page_pages, @pages = 
+      paginate :pages, :per_page=>10, :conditions=>" space_id = #{params[:id]} ", :order=>"title"
+    render_scaffold( 'list')
+  end
 end
