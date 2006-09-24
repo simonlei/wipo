@@ -14,7 +14,10 @@
       <%= submit_tag '更新' %>
       <%= submit_tag '取消', :onclick => "form.action='" + 
           url_for(:action=>'show', :id=>@page) + "';form.method='get';form.submit()" %>
-      <input value="预览" type="submit" name="preview"/>
+      <%= submit_to_remote 'preview', '预览', 
+      :url=>{ :action=>'preview'},
+          #:html=> { :action => url_for( :controller=>'page', :action=>'preview')}, 
+          :update=>'previews' %>
     </td></tr>
   </table>
 
