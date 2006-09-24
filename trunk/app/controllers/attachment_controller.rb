@@ -14,6 +14,11 @@ class AttachmentController < ApplicationController
     redirect_to :action=>'list', :id=>page
   end
 
+  def download
+    attach=Attachment.find( params[:id])
+    send_file File.join( ATTACHMENT_DIR, attach.page_id.to_s, attach.name) 
+  end
+
   # Add this line to get uplaod status for your action 
   upload_status_for :upload
 
@@ -53,8 +58,6 @@ class AttachmentController < ApplicationController
     create_directory page_id
     # write_attribute ' extension', file_data.original_filename.split('.').last.downcase
     path = File.join( ATTACHMENT_DIR, page_id, file.original_filename)
-    File.open( path, 'w') do |f|
-      f.puts file.read
-    end
+    FileUtils.copy file.path, path
   end
 end
