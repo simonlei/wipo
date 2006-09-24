@@ -16,7 +16,7 @@ end
         </span>
         <br/> 
         <span>本页面已访问 133499 次。</span>
-        <%= link_to( image_tag( "xml.gif", :border=>0), :controller=>"feed", :action=>"get") %>
+        <%= link_to( image_tag( "xml.gif", :border=>0), :controller=>"page", :action=>"feed") %>
       </div>
       <!-- The Updates -->
       <span>
@@ -51,7 +51,7 @@ end
                   :action     => "show",
                   :id         => space.id %>
   <%= link_to( image_tag( "tinyXML.jpg", :border => 0),
-             :controller=> "feed", :action => 'get', :id => space) %>
+             :controller=> "page", :action => 'feed', :id => space) %>
               </td>
             </tr>
   <% end %>
