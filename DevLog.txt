@@ -15,7 +15,12 @@ Add the support of preview
 Add the support of rss
 
 TODO:
+Add the creator and modifier to the pages
+Add the tree support for the pages
+Add the virtual delete for the pages
+Add the support of search
 Migrate data from hsql
+Add the support of version
 Add the support of mime of attachment for download
 Add the support of label/tag
 Add the support of page view counter
