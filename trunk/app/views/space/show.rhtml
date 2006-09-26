@@ -94,7 +94,7 @@ end
             <div class="EntryContent"><%= markup(blog) %>
             </div>
             <div class="EntryDesc" style="text-align: right;">
-              <span><%= time_to_str blog.created_at %></span> | <!--<img src="resources/wipo/user" align="absmiddle">-->
+              <span><%= time_to_str blog.updated_at %></span> | <!--<img src="resources/wipo/user" align="absmiddle">-->
               <strong><span><%= blog.user.login %></span></strong> |
               <%= image_tag "comment.gif", :align=>"absmiddle" %>
               <span>π≤<%= blog.comments.size %>Ãı¡Ù—‘</span>

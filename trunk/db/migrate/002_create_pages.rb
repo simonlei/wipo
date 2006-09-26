@@ -3,6 +3,7 @@ class CreatePages < ActiveRecord::Migration
     create_table :pages do |t|
       t.column "title", :string, :null => false
       t.column "content", :string
+      t.column "creator_id", :integer
       t.column "user_id", :integer, :null => false
       t.column "created_at", :datetime
       t.column "updated_at", :datetime

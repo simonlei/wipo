@@ -30,12 +30,25 @@ class PageController < ApplicationController
     else 
       @page = Page.new(params[:page]) 
     end
+    @page.created_at = @page.updated_at = Time.now
     @page.user_id = current_user.id
+    @page.creator_id = current_user.id
     if @page.save
       flash[:notice] = "page was successfully created"
       redirect_to :controller=>'page', :action => "show", :id=>@page.id
     else
       render_scaffold('new')
+    end
+  end
+
+  def update
+    @page = Page.find(params[:id])
+    @page.user=current_user
+    if @page.update_attributes(params[:page])
+      flash[:notice] = 'page was successfully updated.'
+      redirect_to :action => 'show', :id => @page
+    else
+      render :action => 'edit'
     end
   end
 
