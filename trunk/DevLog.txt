@@ -14,9 +14,12 @@ Add the support of attachment
 Add the support of preview
 Add the support of rss
 
-TODO:
+Sep.27,2006
 Add the creator and modifier to the pages
-Add the tree support for the pages
+Add the tree support for the pages in model
+
+TODO:
+Add the tree support for the pages 
 Add the virtual delete for the pages
 Add the support of search
 Migrate data from hsql

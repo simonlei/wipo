@@ -15,13 +15,13 @@ end
 %>
         </span>
         <br/> 
-        <span>±æ“≥√Ê“—∑√Œ  133499 ¥Œ°£</span>
+        <span>Êú¨È°µÈù¢Â∑≤ËÆøÈóÆ 133499 Ê¨°„ÄÇ</span>
         <%= link_to( image_tag( "xml.gif", :border=>0), :controller=>"page", :action=>"feed") %>
       </div>
       <!-- The Updates -->
       <span>
         <div class="sidebar">
-          <div class="sidebarHeader"> ∏¸–¬ </div> 
+          <div class="sidebarHeader"> Êõ¥Êñ∞ </div> 
 	  <table class="sidebarContent" cellpadding="0" cellspacing="0" border="0">
             <% @recent_updated.each do |page| %>
 	    <tr valign="top">
@@ -41,7 +41,7 @@ end
       <!-- The Spaces -->
       <span>
         <div class="sidebar">
-          <div class="sidebarHeader">ø’º‰</div>
+          <div class="sidebarHeader">Á©∫Èó¥</div>
           <table class="sidebarContent">
   <% @spaces.each do |space| %> 
             <tr>
@@ -63,14 +63,14 @@ end
       <% if @space %>
       <span>
         <div class="sidebar">
-          <div class="sidebarHeader"> ∂Ø◊˜ </div> 
+          <div class="sidebarHeader"> Âä®‰Ωú </div> 
 <table class="sidebarContent" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top">
     <td>
-      <%= link_to '‰Ø¿¿ø’º‰', :controller=>'page', :action=>'list', :id=>@space %><br/>
+      <%= link_to 'ÊµèËßàÁ©∫Èó¥', :controller=>'page', :action=>'list', :id=>@space %><br/>
       <% if can_have_action %>
-      <%= link_to 'ÃÌº”wiki“≥', :controller=>'page', :action=>'new', :space_id=>@space.id %><br/>
-        <%= link_to 'ÃÌº”blog“≥', :controller=>'page', :action=>'new', :space_id=>@space.id, :type=>'Weblog' %>
+      <%= link_to 'Ê∑ªÂä†wikiÈ°µ', :controller=>'page', :action=>'new', :space_id=>@space.id %><br/>
+        <%= link_to 'Ê∑ªÂä†blogÈ°µ', :controller=>'page', :action=>'new', :space_id=>@space.id, :type=>'Weblog' %>
       <% end %>
     </td>
   </tr>
@@ -97,7 +97,7 @@ end
               <span><%= time_to_str blog.updated_at %></span> | <!--<img src="resources/wipo/user" align="absmiddle">-->
               <strong><span><%= blog.user.login %></span></strong> |
               <%= image_tag "comment.gif", :align=>"absmiddle" %>
-              <span>π≤<%= blog.comments.size %>Ãı¡Ù—‘</span>
+              <span>ÂÖ±<%= blog.comments.size %>Êù°ÁïôË®Ä</span>
             </div>
           </div>
           <% end %>
