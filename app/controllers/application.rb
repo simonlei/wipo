@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   # The application controller will give us the "current_user" method.
   include ActiveRbacMixins::ApplicationControllerMixin
 
+  before_filter :set_charset 
   before_filter :protect_controller, :except => [ :list, :index, :show, :welcome, :login]
   
   def protect_controller 
@@ -19,6 +20,14 @@ class ApplicationController < ActionController::Base
       redirect_to "/active_rbac/login/"
       flash[:notice] = "You are not allowed to access this page" 
       return false 
+    end 
+  end
+
+  def set_charset 
+    if request.xhr? 
+      @headers["Content-Type"] = "text/javascript; charset=utf-8" 
+    else 
+      @headers["Content-Type"] = "text/html; charset=utf-8" 
     end 
   end
 

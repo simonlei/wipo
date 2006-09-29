@@ -5,6 +5,7 @@ class Page < ActiveRecord::Base
   belongs_to :creator, :class_name=>'User', :foreign_key=>'creator_id'
   belongs_to :user
   has_many :attachments
+  acts_as_tree 
   acts_as_commentable
 
   def log_date 

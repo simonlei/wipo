@@ -18,7 +18,7 @@
       <div class="searchForm">
         <form action="/jspwiki/?path=0:border:header:searchForm&amp;interface=IFormSubmitListener" style="padding: 1px; margin: 1px" method="post">
           <input value="" type="text" size="15" name="word"/>
-          <input type="submit" accesskey="s" value="ËÑË÷"/>
+          <input type="submit" accesskey="s" value="æœç´¢"/>
         </form>
       </div>
       <div class="cleared">&nbsp;</div>
@@ -26,13 +26,13 @@
 
     <div class="loginBox">
       <% if current_user.is_anonymous? %>
-        <%= link_to "ÏÖÔÚµÇÂ¼", :controller => "/active_rbac/login" %>
+        <%= link_to "çŽ°åœ¨ç™»å½•", :controller => "/active_rbac/login" %>
       <% else %>
-        ÓÃ»§: <span><%= current_user.login %></span>  
-        | <%= link_to "¹ÜÀí", :controller => "/active_rbac/my_account", :action => "change_password" %> 
-        | <%= link_to "µÇ³ö", :controller => "/active_rbac/login", :action => "logout" %>
+        ç”¨æˆ·: <span><%= current_user.login %></span>  
+        | <%= link_to "ç®¡ç†", :controller => "/active_rbac/my_account", :action => "change_password" %> 
+        | <%= link_to "ç™»å‡º", :controller => "/active_rbac/login", :action => "logout" %>
       <% end %>
-      | <%= link_to "×¢²á", :controller => "/active_rbac/registration" %>
+      | <%= link_to "æ³¨å†Œ", :controller => "/active_rbac/registration" %>
     </div>
   </div>
 

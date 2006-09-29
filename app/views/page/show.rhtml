@@ -17,7 +17,7 @@
     <span>
       <div style="float:right">
       </div>
-      <div class="EntryDesc">±¾Ò³ÃæÓÉ <%= @page.user.login %> ´´½¨ÓÚ <%= time_to_str @page.created_at %> </div>
+      <div class="EntryDesc">æœ¬é¡µé¢ç”± <%= @page.user.login %> åˆ›å»ºäºŽ <%= time_to_str @page.created_at %> </div>
       <div class="cleared">&nbsp;</div>
 
       <div class="EntryContent">
@@ -27,7 +27,7 @@
   </span>
 
   <div class="tabletitle" style="border: 0px">
-    <a name="comments">ÁôÑÔ</a>
+    <a name="comments">ç•™è¨€</a>
   </div>
   <span>
     <% if @page.comments.size != 0 %>
@@ -35,7 +35,7 @@
       <div>
         <% @comments.each do |comment| %>
         <div class="CommentDesc"> 
-          <%= comment.user.login %> ÁôÑÔÓÚ <%= time_to_str comment.created_at%>¡£</div>
+          <%= comment.user.login %> ç•™è¨€äºŽ <%= time_to_str comment.created_at%>ã€‚</div>
           <div class="CommentContent">
             <%= comment.comment %>
           </div>
@@ -46,10 +46,10 @@
   </span>
 
   <div class="add-comment">
-    ÇëÐ´ÏÂÄúµÄÁôÑÔ
+    è¯·å†™ä¸‹æ‚¨çš„ç•™è¨€
     <%= form_tag :action => "comment", :id => @page.id %>
       <%= text_area "comment", "comment", "cols"=>60, "rows"=>5 %><br/>
-      <%= submit_tag "Ìí¼Ó" %>
+      <%= submit_tag "æ·»åŠ " %>
     </form>
   </div>
 </div>

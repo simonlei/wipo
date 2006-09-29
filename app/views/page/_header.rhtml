@@ -2,21 +2,21 @@
 <div class="pagebody">
   <div class="greynavbar">
     <span style="float:right; padding: 6px 10px 4px 0px">
-      <%= link_to 'ä¯ÀÀ¿Õ¼ä', :controller=>'page', :action=>'list', :id=>@page.space_id %>
+      <%= link_to 'æµè§ˆç©ºé—´', :controller=>'page', :action=>'list', :id=>@page.space_id %>
       &nbsp;
-      <%= link_to 'Ìí¼ÓwikiÒ³', :controller=>'page', :action=>'new', :space_id=>@page.space_id %>
+      <%= link_to 'æ·»åŠ wikié¡µ', :controller=>'page', :action=>'new', :space_id=>@page.space_id %>
       &nbsp;
-      <%= link_to 'Ìí¼ÓblogÒ³', :controller=>'page', :action=>'new', :space_id=>@page.space_id, :type=>'Weblog' %>
+      <%= link_to 'æ·»åŠ blogé¡µ', :controller=>'page', :action=>'new', :space_id=>@page.space_id, :type=>'Weblog' %>
     </span>
     <ul id="foldertab" style="margin-bottom: 0px; padding-top: 10px;">
       <li>
-      <%= link_to_unless_current "<span>²é¿´(<u>V</u>)</span>", {:controller=>"page", :action=>"show", :id=>@page},
+      <%= link_to_unless_current "<span>æŸ¥çœ‹(<u>V</u>)</span>", {:controller=>"page", :action=>"show", :id=>@page},
           :id => "notcurrent" %>
       </li><li>
-      <%= link_to_unless_current "<span>ÐÞ¸Ä(<u>E</u>)</span>", {:controller=>"page", :action=>"edit", :id=>@page},
+      <%= link_to_unless_current "<span>ä¿®æ”¹(<u>E</u>)</span>", {:controller=>"page", :action=>"edit", :id=>@page},
           :id => "notcurrent" %>
       </li><li>
-      <%= link_to_unless_current "<span>¸½¼þ(<u>A</u>) - " + @page.attachments.size.to_s + "</span>", 
+      <%= link_to_unless_current "<span>é™„ä»¶(<u>A</u>) - " + @page.attachments.size.to_s + "</span>", 
           {:controller=>"attachment", :action=>"list", :id=>@page}, :id => "notcurrent" %>
       </li>
     </ul>
