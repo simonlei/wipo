@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
             :action => 'confirm'
 
   map.connect '', :controller => "space", :action => "show"
+  map.connect 'jspwiki', :controller => "space", :action => "show"
             
   # The priority is based upon order of creation: first created -> highest priority.
   

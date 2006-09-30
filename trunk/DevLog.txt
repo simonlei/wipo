@@ -27,3 +27,11 @@ Add the support of version
 Add the support of mime of attachment for download
 Add the support of label/tag
 Add the support of page view counter
+
+alter table pages add column view_count integer;
+alter table pages add column tags varchar(50);
+alter table attachments add column content_type varchar(50);
+alter table spaces add column type varchar(50);
+
+Write comment by myself.
+
