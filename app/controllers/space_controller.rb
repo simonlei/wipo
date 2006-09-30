@@ -2,15 +2,6 @@ class SpaceController < ApplicationController
   helper :calendar
   scaffold :space
 
-  def welcome
-    @spaces = Space.find(:all)
-    today = Date.today
-    @year = params[:year] || today.year
-    @month = params[:month] || today.month
-    @weblogs = Page.find :all, :limit=>20, :order => 'created_at DESC'
-    @weblogs_by_day = sort_weblogs_by_day( @weblogs)
-  end
-
   def sort_weblogs_by_day( weblogs)
     weblogs_by_day = {}
     weblogs.each do |weblog|
@@ -43,6 +34,9 @@ class SpaceController < ApplicationController
     conditions = " created_at < '#{params[:date_to]+1}' and created_at >= '#{params[:date_from]}' "
     conditions += " and space_id = #{params[:id]} " unless params[:id].nil?
     @weblogs = Weblog.find :all, :conditions=>conditions, :limit=>20, :order => 'created_at DESC'
+
+    # ½¨Á¢page title µÄcache
+    # @title_caches = {}
 
     # updates of all
     conditions = "space_id = #{params[:id]}" unless params[:id].nil?
