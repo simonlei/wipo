@@ -60,7 +60,7 @@ class PageController < ApplicationController
   def feed
     conditions = params[:query].sub(/space/,'space_id') if params[:query]
     conditions = " space_id = #{params[:id]} " if params[:id]
-    @pages=Page.find(:all, :conditions=>conditions, :order=> "updated_at,created_at", :limit=>15)
+    @pages=Page.find(:all, :conditions=>conditions, :order=> "updated_at DESC", :limit=>15)
     @headers["Content-Type"] = "application/rss+xml"
     render :layout=>false
   end
