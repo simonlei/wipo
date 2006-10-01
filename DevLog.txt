@@ -18,11 +18,13 @@ Sep.27,2006
 Add the creator and modifier to the pages
 Add the tree support for the pages in model
 
+Oct.01,2006
+Migrate data from hsql
+
 TODO:
+Add the support of search
 Add the tree support for the pages 
 Add the virtual delete for the pages
-Add the support of search
-Migrate data from hsql
 Add the support of version
 Add the support of mime of attachment for download
 Add the support of label/tag
