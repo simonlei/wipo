@@ -1,5 +1,7 @@
 class AddDefaultUserAndRole < ActiveRecord::Migration
   def self.up
+  end 
+  def nothing
     role = Role.new
     role.title = 'Admin'
     role.save

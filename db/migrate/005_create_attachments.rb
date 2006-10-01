@@ -7,6 +7,7 @@ class CreateAttachments < ActiveRecord::Migration
       t.column :user_id, :integer, :null => false
       t.column :created_at, :datetime
       t.column :description, :string
+      t.column :content_type, :string
     end
   end
 

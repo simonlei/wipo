@@ -4,6 +4,7 @@ class CreateSpaces < ActiveRecord::Migration
       t.column "name", :string, :null => false
       t.column "description", :string
       t.column "created_at", :datetime
+      t.column "type", :string
     end
   end
 
