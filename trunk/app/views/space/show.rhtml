@@ -15,7 +15,7 @@ end
 %>
         </span>
         <br/> 
-        <span>本页面已访问 133499 次。</span>
+        <span>本页面已访问 <%= @view_count.count %> 次。</span>
         <%= link_to( image_tag( "xml.gif", :border=>0), :controller=>"page", :action=>"feed") %>
       </div>
       <!-- The Updates -->
