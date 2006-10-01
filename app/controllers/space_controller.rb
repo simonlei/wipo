@@ -30,13 +30,13 @@ class SpaceController < ApplicationController
     weblogs_in_the_month = Weblog.find :all, :conditions=>conditions
     @weblogs_by_day = sort_weblogs_by_day( weblogs_in_the_month)
 
-    # weblogs of top 20
-    # 如果没有任何条件，则找前20个weblog
+    # weblogs of top 15
+    # 如果没有任何条件，则找前15个weblog
     # 如果指定年、月、日，则找该时间范围内的weblog
     # 如果指定了space，则将范围限制在该space当中
     conditions = " created_at < '#{params[:date_to]+1}' and created_at >= '#{params[:date_from]}' "
     conditions += " and space_id = #{params[:id]} " unless params[:id].nil?
-    @weblogs = Weblog.find :all, :conditions=>conditions, :limit=>20, :order => 'created_at DESC'
+    @weblogs = Weblog.find :all, :conditions=>conditions, :limit=>15, :order => 'created_at DESC'
 
     # 建立page title 的cache
     # @title_caches = {}
