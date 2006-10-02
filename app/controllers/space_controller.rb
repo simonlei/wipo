@@ -2,6 +2,14 @@ class SpaceController < ApplicationController
   helper :calendar
   scaffold :space
 
+  def search
+    query = params[:search][:query]
+    puts "xxxxxxxxxx" + query + "fff"
+    @results = Page.find_by_contents(query)
+    
+    puts "yyyyyyyyyy" + @results.size.to_s
+  end
+
   def sort_weblogs_by_day( weblogs)
     weblogs_by_day = {}
     weblogs.each do |weblog|

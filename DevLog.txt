@@ -21,7 +21,12 @@ Add the tree support for the pages in model
 Oct.01,2006
 Migrate data from hsql
 
+Oct.02,2006
+gem install ferret
+plugin install -x acts_as_ferret
+
 TODO:
+Add the support of more_like_this of acts_as_ferret
 Add the support of search
 Add the tree support for the pages 
 Add the virtual delete for the pages
