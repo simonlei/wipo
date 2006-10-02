@@ -1,4 +1,6 @@
 class Page < ActiveRecord::Base
+  acts_as_ferret({},{:analyzer=>Ferret::Analysis::RegExpAnalyzer.new(/./,false)})
+
   PAGE_LINK = /\[\[([^\]|]*)[|]?([^\]]*)\]\]/
 
   belongs_to :space

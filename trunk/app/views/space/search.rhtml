@@ -1,0 +1,23 @@
+<h1>Search result</h1>
+
+<div id="SingleContent">
+  <table cellspacing="0" width="90%" class="tableview">
+    <tr>
+      <th>标题</th>
+      <th>内容</th>
+      <th>作者</th>
+      <th>最后更新</th>
+      <th>rate</th>
+    </tr>
+      <% @results.each do | page | %>
+    <tr>
+      <td> <%= link_to page.title, :controller=>'page', :action=>'show', :id=>page.id %> </td>
+      <td> <%= truncate page.content, 100 %> </td>
+      <td> <%= page.user.login %></td>
+      <td nowrap> <%= time_to_str page.updated_at %></td>
+      <td> </td>
+    </tr>
+      <% end %>
+  </table>
+</div>
+
