@@ -477,6 +477,10 @@ div.topBarTitle {
 	color: inherit; /*text-decoration: none;*/
 }
 
+.topBarTitle a:visited {
+	color: white; 
+}
+
 .searchForm {
 	float: right;
 	background-color: inherit;
