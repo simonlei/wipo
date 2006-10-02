@@ -13,7 +13,7 @@ xml.rss "version" => "2.0",
         xml.title page.title
         xml.link url_for(:only_path=> false,
                         :controller=> 'page', :action=> 'show', :id=>page.id)
-        xml.description markup page
+        xml.description(markup(page))
         xml.pubDate CGI.rfc1123_date(page.updated_at)
         xml.guid url_for(:only_path=> false, :controller=> 'pages',
                         :action=> 'show', :id=>page)
