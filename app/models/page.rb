@@ -1,5 +1,6 @@
 class Page < ActiveRecord::Base
   acts_as_ferret({},{:analyzer=>Ferret::Analysis::RegExpAnalyzer.new(/./,false)})
+  acts_as_versioned
 
   PAGE_LINK = /\[\[([^\]|]*)[|]?([^\]]*)\]\]/
 

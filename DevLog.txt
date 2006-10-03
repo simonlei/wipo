@@ -24,13 +24,16 @@ Migrate data from hsql
 Oct.02,2006
 gem install ferret
 plugin install -x acts_as_ferret
+Add the support of search
+
+Oct.03,2006
+gem install acts_as_versioned
 
 TODO:
+Add the support of version
 Add the support of more_like_this of acts_as_ferret
-Add the support of search
 Add the tree support for the pages 
 Add the virtual delete for the pages
-Add the support of version
 Add the support of mime of attachment for download
 Add the support of label/tag
 Add the support of page view counter
