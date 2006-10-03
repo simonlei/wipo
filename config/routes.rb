@@ -26,5 +26,6 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default route as the lowest priority.
   map.connect ':controller/:action/:id'
   map.connect 'jspwiki/pages/viewblog', :controller=>'page', :action=>'show'
+  map.connect 'jspwiki/pages/:action/:id', :controller=>'page'
   map.connect 'jspwiki/:controller/:action/:id'
 end
