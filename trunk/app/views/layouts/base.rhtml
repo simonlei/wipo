@@ -35,7 +35,7 @@ urchinTracker();
       <% if current_user.is_anonymous? %>
         <%= link_to "现在登录", :controller => "/active_rbac/login" %>
       <% else %>
-        用户: <span><%= current_user.login %></span>  
+        用户: <span><%= url_for_user current_user%></span>  
         | <%= link_to "管理", :controller => "/active_rbac/my_account", :action => "change_password" %> 
         | <%= link_to "登出", :controller => "/active_rbac/login", :action => "logout" %>
       <% end %>

@@ -13,7 +13,7 @@
     <tr>
       <td> <%= link_to page.title, :controller=>'page', :action=>'show', :id=>page.id %> </td>
       <td> <%= truncate page.content, 100 %> </td>
-      <td> <%= page.user.login %></td>
+      <td> <%= url_for_user page.user%></td>
       <td nowrap> <%= time_to_str page.updated_at %></td>
       <td> </td>
     </tr>
