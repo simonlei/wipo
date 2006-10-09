@@ -32,6 +32,9 @@ gem install acts_as_versioned
 Oct.08,2006
 Add powered by logo of rails
 
+Oct.09,2006
+Add the url for user, will add personal space for user
+
 TODO:
 Add the support of version
 Add the support of more_like_this of acts_as_ferret
@@ -40,16 +43,12 @@ Add the virtual delete for the pages
 Add the support of mime of attachment for download
 Add the support of label/tag
 Add the support of page view counter
+Add the support to user space name and page title as url
+Unique page title in one space validation
 Can create blog easier
 Manage the previlidges
 Compability with the previous text format
 Add the home page for the users
 Add the support of personal space
-
-alter table pages add column view_count integer;
-alter table pages add column tags varchar(50);
-alter table attachments add column content_type varchar(50);
-alter table spaces add column type varchar(50);
-
+Fix the bug when delete a page, should redirect to the space with id
 Write comment by myself.
-

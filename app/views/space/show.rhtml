@@ -29,7 +29,7 @@ end
                 <%= link_to page.title, :controller => "page", :action => "show", :id => page.id %>
                 <br/>
                 <span class="smalltext">
-                  <span><%= page.user.login %></span>(<span><%= page.log_date %></span>)
+                  <span><%= url_for_user page.user %></span>(<span><%= page.log_date %></span>)
                 </span>
               </td>
             </tr>
@@ -95,7 +95,7 @@ end
             </div>
             <div class="EntryDesc" style="text-align: right;">
               <span><%= time_to_str blog.updated_at %></span> | <!--<img src="resources/wipo/user" align="absmiddle">-->
-              <strong><span><%= blog.user.login %></span></strong> |
+              <strong><span><%= url_for_user blog.user %></span></strong> |
               <%= image_tag "comment.gif", :align=>"absmiddle" %>
               <span>共<%= blog.comments.size %>条留言</span>
             </div>

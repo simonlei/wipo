@@ -23,7 +23,7 @@
         <%= link_to attach.name, :action=>'download', :id=>attach.id %>
       </td>
       <td width="50" nowrap style="text-align:right;"><span><%= size_to_s attach.size %></span></td>
-      <td><span><%= attach.user.login %></span></td>
+      <td><span><%= url_for_user attach.user%></span></td>
       <td><span><%= time_to_str attach.created_at %></span></td>
       <td><span><%= attach.description %></span></td>
       <td>

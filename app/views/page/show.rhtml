@@ -3,7 +3,7 @@
     <td rowspan="2">
       <%= image_tag "blog.gif", :border => 0 %>
     </td>
-    <td class="smalltext"><%= @page.user.login %></td>
+    <td class="smalltext"><%= url_for_user @page.user%></td>
   </tr>
   <tr>
     <td class="pagetitle" style="text-decoration: none"><%= @page.title %></td>
@@ -17,7 +17,7 @@
     <span>
       <div style="float:right">
       </div>
-      <div class="EntryDesc">本页面由 <%= @page.user.login %> 创建于 <%= time_to_str @page.created_at %> </div>
+      <div class="EntryDesc">本页面由 <%= url_for_user @page.user%> 创建于 <%= time_to_str @page.created_at %> </div>
       <div class="cleared">&nbsp;</div>
 
       <div class="EntryContent">
@@ -35,7 +35,7 @@
       <div>
         <% @comments.each do |comment| %>
         <div class="CommentDesc"> 
-          <%= comment.user.login %> 留言于 <%= time_to_str comment.created_at%>。</div>
+          <%= url_for_user comment.user%> 留言于 <%= time_to_str comment.created_at%>。</div>
           <div class="CommentContent">
             <%= comment.comment %>
           </div>
