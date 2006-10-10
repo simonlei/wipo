@@ -36,6 +36,12 @@ Oct.09,2006
 Add the url for user, will add personal space for user
 
 TODO:
+Can create blog easier
+Support of quick comment
+Cookies for login user
+Manage the previlidges
+Compability with the previous text format
+Add the static pages for search engines
 Add the support of version
 Add the support of more_like_this of acts_as_ferret
 Add the tree support for the pages 
@@ -45,9 +51,6 @@ Add the support of label/tag
 Add the support of page view counter
 Add the support to user space name and page title as url
 Unique page title in one space validation
-Can create blog easier
-Manage the previlidges
-Compability with the previous text format
 Add the home page for the users
 Add the support of personal space
 Fix the bug when delete a page, should redirect to the space with id

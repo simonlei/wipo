@@ -1,6 +1,15 @@
 class PageController < ApplicationController
   scaffold :page
 
+  def displaypage
+    s= params[:space_name]
+    space_name = s[1..-1]
+    space = Space.find :first, :conditions=>[ "name=?", space_name]
+    @page = Page.find :first, :conditions=>["title=? and space_id=?", params[:page_title], space.id]
+    @comments = @page.comments
+    render_scaffold "show"
+  end
+
   def show
     @page = Page.find( params[:id])
     @comments = @page.comments
