@@ -4,9 +4,9 @@ module ApplicationHelper
 
   def url_for_user user
     if user.personal_space_id > 0
-      link_to user.login, :controller=>"space", :action=>"show", :id => user.personal_space_id
+      link_to user.login, {:controller=>"space", :action=>"show_home", :id => user.personal_space_id}, :class=>'user_link'
     else
-      user.login 
+      link_to user.login, {:controller=>"/active_rbac/user", :action=>"show", :id=>user}, :class=>'user_link'
     end
   end
 

@@ -2,6 +2,16 @@ class SpaceController < ApplicationController
   helper :calendar
   scaffold :space
 
+  def show_home
+    page = Page.find :first, :conditions=>["title=? and space_id=?", "Home", params[:id]]
+    if page.nil? then
+      redirect_to :controller=>'space', :action=>'show', :id=>params[:id]
+    else
+      # The space has page titled "Home", then use it
+      redirect_to :controller=>'page', :action=>'show', :id=>page
+    end
+  end
+
   def search
     query = params[:search][:query]
     @results = Page.find_by_contents(query)

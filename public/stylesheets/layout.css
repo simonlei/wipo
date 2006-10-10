@@ -753,3 +753,14 @@ ul.star {
     color: red;
 }
 
+/* for the user links */
+a:link.user_link {
+	color: inherit;
+	text-decoration: none;
+}
+
+a:visited.user_link {
+	color: inherit;
+	text-decoration: none;
+}
+

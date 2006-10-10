@@ -35,6 +35,9 @@ Add powered by logo of rails
 Oct.09,2006
 Add the url for user, will add personal space for user
 
+Oct.10,2006
+Add the css for username
+
 TODO:
 Can create blog easier
 Support of quick comment
