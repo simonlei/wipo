@@ -15,4 +15,13 @@ class Page < ActiveRecord::Base
     updated_at.to_date unless updated_at.nil?
   end
 
+  protected
+  def validate
+    if self.id.nil?
+      page = Page.find :first, :conditions=>["title=? and space_id=?", self.title, self.space_id] 
+    else
+      page = Page.find :first, :conditions=>["title=? and space_id=? and id<>?", self.title, self.space_id, self.id] 
+    end
+    errors.add( :title, "Should be unique in one space") unless page.nil?
+  end
 end
