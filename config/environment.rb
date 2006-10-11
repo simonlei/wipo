@@ -64,3 +64,5 @@ KILO = 1024
 MILLION = KILO*KILO
 GIGA = MILLION*KILO
 
+# session will expire in one month
+CGI::Session.expire_after 1.month

@@ -41,9 +41,11 @@ Add the support to user space name and page title as url
 Can create blog easier
 Unique page title in one space validation
 
+Oct.11,2006
+Cookies for login user
+
 TODO:
 Support of quick comment
-Cookies for login user
 Manage the previlidges
 Compability with the previous text format
 Generate static pages for search engines
