@@ -1,7 +1,6 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
-  PAGE_LINK = /\[([^\]|]*)[|]?([^\]]*)\]/
 
   def url_for_user user
     if user.personal_space_id > 0
@@ -61,11 +60,11 @@ module ApplicationHelper
                /x unless const_defined?(:AUTO_LINK_RE)
 
   class WipoRedCloth < RedCloth
-    def initialize(space_name, text, existing_wiki_pages, rails_helper)
+    def initialize(space, text, existing_wiki_pages, rails_helper)
       super(text)
       @existing_wiki_pages = existing_wiki_pages
       @rails_helper = rails_helper
-      @space_name = space_name
+      @space = space
       #breakpoint
     end
 
@@ -84,34 +83,32 @@ module ApplicationHelper
     end
 
     def refs_insert_wiki_links(text)
-      text.gsub!(PAGE_LINK) do
+      text.gsub!(ApplicationHelper::PAGE_LINK) do
         page = title = $1
         page = $2 unless $2.empty?
-        #puts "============="
-        #puts page
-        #puts title
-        #puts "------------"
         if page =~ /^http/
           "<a href=\"#{page}\">#{title}</a>"
         elsif @existing_wiki_pages.include?(page)
           @rails_helper.link_to(title, page_url(page), :class => "existingWikiWord")
         else
-          # Should be new page url
-          @rails_helper.content_tag("span", title + @rails_helper.link_to("?", page_url(page)), :class=>"newWikiWord")
+          @rails_helper.content_tag("span", title + @rails_helper.link_to("?", new_page_url(page)), :class=>"newWikiWord")
         end
       end
     end
 
     private
+    def new_page_url title
+      @rails_helper.url_for :controller=>"page", :action=>"new", :space_id=>@space.id, :type=>"Wiki", :title=>title
+    end
+
     def page_url title
-      #@rails_helper.display_page_url :controller => 'page', :action => 'display', :space_name => @space_name, :page_title=>title
-      @rails_helper.display_page_url :space_name => @space_name, :page_title=>title
+      @rails_helper.display_page_url :space_name => @space.name, :page_title=>title
     end
   end
 
   def markup page, existing_page=nil 
     existing_page_titles = page.space.existing_page_titles if existing_page.nil?
-    return WipoRedCloth.new(page.space.name, page.content, existing_page_titles,self).to_html( :refs_insert_wiki_links, :refs_auto_link, *RedCloth::DEFAULT_RULES) 
+    return WipoRedCloth.new(page.space, page.content, existing_page_titles,self).to_html( :refs_insert_wiki_links, :refs_auto_link, *RedCloth::DEFAULT_RULES) 
   end
 
   def differences(original, new)
