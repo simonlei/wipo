@@ -1,9 +1,13 @@
 class PageController < ApplicationController
   scaffold :page
+  #cache_sweeper :page_sweeper, :only => [:create, :update]
+  cache_sweeper :page_sweeper
+  caches_page :show
+
 
   def displaypage
-    s= params[:space_name]
-    space_name = s[1..-1]
+    space_name = params[:space_name]
+    space_name = space_name[1..-1] if space_name[0]==126 # is ~
     space = Space.find :first, :conditions=>[ "name=?", space_name]
     @page = Page.find :first, :conditions=>["title=? and space_id=?", params[:page_title], space.id]
     @comments = @page.comments

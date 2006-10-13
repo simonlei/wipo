@@ -1,7 +1,8 @@
 Sep.05,2006
 Add the active_rbac support
 Add the acts_as_comment support
-Install the RedCloth
+gem install redcloth
+gem install sqlite3-ruby
 
 Sep.06,2006
 Add the wiki_engine support
@@ -27,7 +28,7 @@ plugin install -x acts_as_ferre
 Add the support of search
 
 Oct.03,2006
-gem install acts_as_versioned
+plugin install acts_as_versioned
 
 Oct.08,2006
 Add powered by logo of rails
@@ -45,6 +46,8 @@ Oct.11,2006
 Cookies for login user
 
 TODO:
+Support cache
+Redirect to the request url after login
 Support of quick comment
 Manage the previlidges
 Compability with the previous text format
@@ -60,3 +63,5 @@ Add the home page for the users
 Add the support of personal space
 Fix the bug when delete a page, should redirect to the space with id
 Write comment by myself.
+Support macro
+Support pagination at home page

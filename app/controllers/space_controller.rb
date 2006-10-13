@@ -1,6 +1,7 @@
 class SpaceController < ApplicationController
   helper :calendar
   scaffold :space
+  caches_page :show
 
   def show_home
     page = Page.find :first, :conditions=>["title=? and space_id=?", "Home", params[:id]]
