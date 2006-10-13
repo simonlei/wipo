@@ -45,8 +45,14 @@ Unique page title in one space validation
 Oct.11,2006
 Cookies for login user
 
-TODO:
+Oct.12,2006
 Support cache
+
+Oct.13,2006
+Write comment by myself.
+The problem of pagination with cache
+
+TODO:
 Redirect to the request url after login
 Support of quick comment
 Manage the previlidges
@@ -62,6 +68,5 @@ Add the support of page view counter
 Add the home page for the users
 Add the support of personal space
 Fix the bug when delete a page, should redirect to the space with id
-Write comment by myself.
 Support macro
 Support pagination at home page

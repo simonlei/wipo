@@ -33,6 +33,7 @@ class PageController < ApplicationController
       @page = Page.new
     end
 
+    @page.title=params[:title] unless params[:title].nil?
     @page.space_id = params[:space_id]
     render_scaffold
   end

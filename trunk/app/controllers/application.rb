@@ -31,4 +31,5 @@ class ApplicationController < ActionController::Base
     end 
   end
 
+  PAGE_LINK = /\[([^\]|]*)[|]?([^\]]*)\]/
 end
