@@ -1,7 +1,7 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
-  PAGE_LINK = /\[\[([^\]|]*)[|]?([^\]]*)\]/
+  PAGE_LINK = /\[([^\]|]*)[|]?([^\]]*)\]/
 
   def url_for_user user
     if user.personal_space_id > 0
@@ -87,17 +87,17 @@ module ApplicationHelper
       text.gsub!(PAGE_LINK) do
         page = title = $1
         page = $2 unless $2.empty?
-        puts "============="
-        puts page
-        puts title
-        puts "------------"
+        #puts "============="
+        #puts page
+        #puts title
+        #puts "------------"
         if page =~ /^http/
-          puts "xxxxxxxyyyyyyyyyy"
-          "xxxxxxxxxxxxxxxx"
+          "<a href=\"#{page}\">#{title}</a>"
         elsif @existing_wiki_pages.include?(page)
           @rails_helper.link_to(title, page_url(page), :class => "existingWikiWord")
         else
-          @rails_helper.content_tag("span", title + @rails_helper.link_to("?", @rails_helper.page_url(:page_title => page)), :class => "newWikiWord")
+          # Should be new page url
+          @rails_helper.content_tag("span", title + @rails_helper.link_to("?", page_url(page)), :class=>"newWikiWord")
         end
       end
     end
@@ -111,7 +111,7 @@ module ApplicationHelper
 
   def markup page, existing_page=nil 
     existing_page_titles = page.space.existing_page_titles if existing_page.nil?
-    return WipoRedCloth.new(page.space.name, page.content, existing_page_titles,self).to_html(:refs_auto_link, :refs_insert_wiki_links, *RedCloth::DEFAULT_RULES) 
+    return WipoRedCloth.new(page.space.name, page.content, existing_page_titles,self).to_html( :refs_insert_wiki_links, :refs_auto_link, *RedCloth::DEFAULT_RULES) 
   end
 
   def differences(original, new)
