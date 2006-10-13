@@ -12,6 +12,11 @@
 _uacct = "UA-268149-2";
 urchinTracker();
 </script>
+<script>
+  window.onload = function() {
+    new Ajax.Updater( 'loginBox', '/user/loginbox');
+  }
+</script>
 
 </head>
 <body>
@@ -31,26 +36,17 @@ urchinTracker();
       <div class="cleared">&nbsp;</div>
     </div>
 
-    <div class="loginBox">
-      <% if current_user.is_anonymous? %>
-        <%= link_to "现在登录", :controller => "/active_rbac/login" %>
-      <% else %>
-        用户: <span><%= url_for_user current_user%></span>  
-        <% if current_user.personal_space_id > 0 %>
-        | <%= link_to '添加blog页', :controller=>'page', :action=>'new', :space_id=>current_user.personal_space_id, :type=>'Weblog' %> 
-        <% end %>
-        | <%= link_to "管理", :controller => "/active_rbac/my_account", :action => "change_password" %> 
-        | <%= link_to "登出", :controller => "/active_rbac/login", :action => "logout" %>
-      <% end %>
+    <div class="loginBox" id="loginBox">
+      <%= link_to "现在登录", :controller => "/active_rbac/login" %>
       | <%= link_to "注册", :controller => "/active_rbac/registration" %>
     </div>
   </div>
 
   <div class="cleared">&nbsp;</div>
   <p style="color: green"><%= flash[:notice] %></p>
-  <div id="Content">
-    <%= @content_for_layout %> 
-  </div>
+    <div id="Content">
+      <%= @content_for_layout %> 
+    </div>
   <div class="cleared">&nbsp;</div>
 
 <div id="poweredby" class="smalltext">
