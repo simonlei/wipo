@@ -20,5 +20,5 @@ test:
 
 production:
   adapter: sqlite3
-  database: db/pim_dev.sqlite3
+  database: db/pim_product.sqlite3
 
