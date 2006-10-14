@@ -83,7 +83,7 @@ module ApplicationHelper
     end
 
     def refs_insert_wiki_links(text)
-      text.gsub!(ApplicationHelper::PAGE_LINK) do
+      text.gsub!(Page::PAGE_LINK) do
         page = title = $1
         page = $2 unless $2.empty?
         if page =~ /^http/

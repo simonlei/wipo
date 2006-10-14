@@ -2,13 +2,10 @@ class PageSweeper < ActionController::Caching::Sweeper
   observe Page, Weblog
 
   def after_save(record)
-    case record
-      when Page:
-        expire_page :controller=>"space", :action=>"show"
-        expire_page(:controller=>"space", :action=>"show", :id=>record.space.id)
-        expire_page(:controller=>"page", :action=>"show", :id=>record.id)
-      # when Comment:
-        # Comment 的话，只要expire spaces和当前page就行
-    end
+    # 把cache全删了
+    FileUtils.rm_rf(RAILS_ROOT + "/public/index.html")
+    FileUtils.rm_rf(RAILS_ROOT + "/public/space/")
+    FileUtils.rm_rf(RAILS_ROOT + "/public/page/")
+    FileUtils.rm_rf(RAILS_ROOT + "/public/display/")
   end
 end

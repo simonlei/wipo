@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   include ActiveRbacMixins::ApplicationControllerMixin
 
   before_filter :set_charset 
-  before_filter :protect_controller, :except => [ :list, :index, :show, :welcome, :login, :download, :feed, :search, :displaypage, :show_home, :loginbox]
+  before_filter :protect_controller, :except => [ :list, :index, :show, :welcome, :login, :download, :feed, :search, :displaypage, :show_home, :loginbox, :show_month]
   
   def protect_controller 
     if current_user.has_role?("Admin")
@@ -31,5 +31,4 @@ class ApplicationController < ActionController::Base
     end 
   end
 
-  PAGE_LINK = /\[([^\]|]*)[|]?([^\]]*)\]/
 end

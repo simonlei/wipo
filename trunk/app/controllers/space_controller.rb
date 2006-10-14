@@ -1,7 +1,20 @@
 class SpaceController < ApplicationController
   helper :calendar
   scaffold :space
-  caches_page :show
+  caches_page :show, :show_home, :show_month
+
+  # 用 yyyymm*10000+space_id 来做为展示哪个space的哪个月份
+  def show_month
+    id=params[:id].to_i
+    params[:year]=id/1000000
+    month=(id-params[:year]*1000000)/10000
+    params[:month]=month if month>0
+    space_id=id%10000
+    params[:id]=space_id if space_id>0
+    params[:id]=nil if space_id==0
+    #render :action => "show"
+    show
+  end
 
   def show_home
     page = Page.find :first, :conditions=>["title=? and space_id=?", "Home", params[:id]]
@@ -14,19 +27,7 @@ class SpaceController < ApplicationController
   end
 
   def search
-    query = params[:search][:query]
-    @results = Page.find_by_contents(query)
-  end
-
-  def sort_weblogs_by_day( weblogs)
-    weblogs_by_day = {}
-    weblogs.each do |weblog|
-      blogs_in_day = weblogs_by_day[ weblog.log_date]
-      blogs_in_day = [] if blogs_in_day.nil?
-      blogs_in_day << weblog
-      weblogs_by_day[ weblog.log_date] = blogs_in_day
-    end
-    return weblogs_by_day
+    @results = Page.find_by_contents(params[:search][:query])
   end
 
   def show
@@ -61,6 +62,7 @@ class SpaceController < ApplicationController
     conditions = "space_id = #{params[:id]}" unless params[:id].nil?
     @recent_updated=Page.find :all, :limit=>15, :order => 'updated_at DESC', :conditions=>conditions
     @space = Space.find( params[:id]) if params[:id]
+    render "space/show"
   end
   
   private
@@ -84,6 +86,17 @@ class SpaceController < ApplicationController
 
     @view_count.count += 1
     @view_count.save
+  end
+
+  def sort_weblogs_by_day( weblogs)
+    weblogs_by_day = {}
+    weblogs.each do |weblog|
+      blogs_in_day = weblogs_by_day[ weblog.log_date]
+      blogs_in_day = [] if blogs_in_day.nil?
+      blogs_in_day << weblog
+      weblogs_by_day[ weblog.log_date] = blogs_in_day
+    end
+    return weblogs_by_day
   end
 
 end

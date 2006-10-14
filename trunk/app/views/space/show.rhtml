@@ -3,7 +3,7 @@
     <td valign='top' id='LeftMenu'>
       <div class="sidebar">
         <span>
-<%= calendar( :year => @year, :month => @month) do |d|
+<%= calendar( :year => @year, :month => @month, :id=>(@space.nil? ? 0: @space.id)) do |d|
   cell_text = "#{d.mday}<br />" 
   cell_attrs = {:class => 'day'}
   if @weblogs_by_day[d]

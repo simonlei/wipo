@@ -77,23 +77,11 @@ module CalendarHelper
       prev_year=next_year = @year
       prev_month, next_month = @month-1, @month+1
     end
-    prev_month_link = link_to( "<",:controller => controller.controller_name, 
-			     :action => controller.action_name, 
-			     :year => prev_year,
-			     :month => prev_month)
-    next_month_link = link_to( ">",:controller => controller.controller_name, 
-			     :action => controller.action_name, 
-			     :year => next_year,
-			     :month => next_month)
-    show_month_link = link_to( Date::ABBR_MONTHNAMES[@month], 
-			      :controller => controller.controller_name, 
-			     :action => controller.action_name, 
-			     :year => @year,
-			     :month => @month)
-    show_year_link = link_to( @year, 
-			      :controller => controller.controller_name, 
-			     :action => controller.action_name, 
-			     :year => @year)
+    id = options[:id] 
+    prev_month_link = get_space_month_link( "<", prev_year, prev_month, id)
+    next_month_link = get_space_month_link( ">", next_year, next_month, id)
+    show_month_link = get_space_month_link( Date::ABBR_MONTHNAMES[@month], @year, @month, id)
+    show_year_link = get_space_month_link( @year, @year, 0, id)
 
     cal = <<EOF
 <table class="#{options[:table_class]}">
@@ -135,6 +123,10 @@ EOF
 		      :action => controller.action_name, 
 		      :year => @year,
 		      :week => day.week)
+  end
+
+  def get_space_month_link(title, year, month, id)
+    link_to title, :controller=>"space", :action=>"show_month", :id=>sprintf( "%04d%02d%04d",year,month, id)
   end
 end
 
