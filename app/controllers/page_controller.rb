@@ -3,6 +3,11 @@ class PageController < ApplicationController
   cache_sweeper :page_sweeper
   caches_page :show, :displaypage
 
+  def comments
+    @page = Page.find params[:id]
+    render :partial => "comments"
+  end
+
   def displaypage
     space_name = params[:space_name]
     space_name = space_name[1..-1] if space_name[0]==126 # is ~
