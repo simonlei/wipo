@@ -53,9 +53,9 @@ Write comment by myself.
 The problem of pagination with cache
 Generate static pages for search engines
 Redirect to the request url after login
+Support of quick comment
 
 TODO:
-Support of quick comment
 Manage the previlidges
 Compability with the previous text format
 Add the support of version

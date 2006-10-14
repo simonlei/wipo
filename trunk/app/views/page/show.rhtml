@@ -45,6 +45,10 @@
     <% end %>
   </span>
 
+  <% if current_user.is_anonymous? %>
+    Please <%= link_to "login", :controller=>"/active_rbac/login", :action=>"login", 
+      :return_to=>(url_for :controller=>"page", :action=>"show", :id=>@page.id) %> before you can comment!
+  <% else %>
   <div class="add-comment">
     请写下您的留言
     <%= form_tag :action => "comment", :id => @page.id %>
@@ -52,6 +56,7 @@
       <%= submit_tag "添加" %>
     </form>
   </div>
+  <% end %>
 </div>
 
 
