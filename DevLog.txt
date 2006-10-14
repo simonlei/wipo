@@ -45,19 +45,19 @@ Unique page title in one space validation
 Oct.11,2006
 Cookies for login user
 
-Oct.12,2006
+Oct.13,2006
 Support cache
 
-Oct.13,2006
+Oct.14,2006
 Write comment by myself.
 The problem of pagination with cache
+Generate static pages for search engines
+Redirect to the request url after login
 
 TODO:
-Redirect to the request url after login
 Support of quick comment
 Manage the previlidges
 Compability with the previous text format
-Generate static pages for search engines
 Add the support of version
 Add the support of more_like_this of acts_as_ferret
 Add the tree support for the pages 
