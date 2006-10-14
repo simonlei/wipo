@@ -16,10 +16,13 @@ class ApplicationController < ActionController::Base
   def protect_controller 
     if current_user.has_role?("Admin")
       return true
-    else 
+    elsif (current_user.is_anonymous? || (["delete"].include? action_name))
+      puts action_name.class
       redirect_to "/active_rbac/login/"
       flash[:notice] = "You are not allowed to access this page" 
       return false 
+    else
+      return true
     end 
   end
 
