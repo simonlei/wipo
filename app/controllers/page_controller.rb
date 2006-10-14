@@ -1,9 +1,7 @@
 class PageController < ApplicationController
   scaffold :page
-  #cache_sweeper :page_sweeper, :only => [:create, :update]
   cache_sweeper :page_sweeper
-  caches_page :show
-
+  caches_page :show, :displaypage
 
   def displaypage
     space_name = params[:space_name]
