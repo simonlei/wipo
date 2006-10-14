@@ -1,5 +1,5 @@
 class PageSweeper < ActionController::Caching::Sweeper
-  observe Page, Weblog
+  observe Page, Weblog, Comment
 
   def after_save(record)
     # 把cache全删了
