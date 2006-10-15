@@ -5,7 +5,7 @@ class PageController < ApplicationController
 
   def comments
     @page = Page.find params[:id]
-    render :partial => "comments"
+    @comments_str=render_to_string :partial => "comments"
   end
 
   def displaypage

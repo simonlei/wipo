@@ -1,0 +1,2 @@
+page["comments_#{@page.id}"].replace_html @comments_str
+page["comments_#{@page.id}"].toggle
