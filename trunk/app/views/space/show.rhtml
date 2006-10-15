@@ -38,6 +38,26 @@ end
         </div>
       </span>
 
+      <!-- The Comments Updates -->
+      <span>
+        <div class="sidebar">
+          <div class="sidebarHeader"> 最新评论 </div> 
+	  <table class="sidebarContent" cellpadding="0" cellspacing="0" border="0">
+            <% @recent_comment_updated.each do |comment| %>
+	    <tr valign="top">
+              <td>
+                <%= link_to (truncate(comment.comment)), :controller => "page", :action => "show", :id => comment.page_id %>
+                <br/>
+                <span class="smalltext">
+                  <span><%= url_for_user comment.user %></span>(<span><%= comment.created_at.to_date %></span>)
+                </span>
+              </td>
+            </tr>
+            <% end %>
+          </table>
+        </div>
+      </span>
+
       <!-- The Spaces -->
       <span>
         <div class="sidebar">
