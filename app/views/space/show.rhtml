@@ -97,11 +97,10 @@ end
               <span><%= time_to_str blog.updated_at %></span> | <!--<img src="resources/wipo/user" align="absmiddle">-->
               <strong><span><%= url_for_user blog.user %></span></strong> |
               <%= image_tag "comment.gif", :align=>"absmiddle" %>
-              <span><%= link_to_remote "共#{blog.comments.size}条留言", :update=>"comments_#{blog.id}", 
+              <span><%= link_to_remote "共#{blog.comments.size}条留言", 
                 :url=>{ :controller=> "page", :action=> "comments", :id=>blog.id} %></span>
             </div>
-            <div class="EntryContent" id="comments_<%=blog.id%>">
-            </div>
+            <div class="EntryContent" id="comments_<%=blog.id%>" style="display:none"></div>
           </div>
           <% end %>
         </span>
