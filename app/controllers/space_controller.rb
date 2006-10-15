@@ -61,6 +61,7 @@ class SpaceController < ApplicationController
     # updates of all
     conditions = "space_id = #{params[:id]}" unless params[:id].nil?
     @recent_updated=Page.find :all, :limit=>15, :order => 'updated_at DESC', :conditions=>conditions
+    @recent_comment_updated=Comment.find :all, :limit=>15, :order=>'created_at DESC'
     @space = Space.find( params[:id]) if params[:id]
     render "space/show"
   end

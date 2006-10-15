@@ -55,6 +55,10 @@ Generate static pages for search engines
 Redirect to the request url after login
 Support of quick comment
 
+Oct.15,2006
+The ajax part of quick comment
+The recent update of comments
+
 TODO:
 Manage the previlidges
 Compability with the previous text format
