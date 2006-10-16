@@ -14,7 +14,8 @@ urchinTracker();
 </script>
 <script>
   window.onload = function() {
-    new Ajax.Updater( 'loginBox', '/user/loginbox');
+    new Ajax.Updater( 'loginBox', '<%= "/user/loginbox" %>');
+    new Ajax.Updater( 'view_count', '<%= "/user/view_count?c=#{controller.controller_name}&a=#{controller.action_name}&id=#{params[:id]}" %>');
   }
 </script>
 
@@ -35,6 +36,7 @@ urchinTracker();
       </div>
       <div class="cleared">&nbsp;</div>
     </div>
+    <span id="view_count"></span>
 
     <div class="loginBox" id="loginBox">
       <%= link_to "现在登录", :controller => "/active_rbac/login" %>
