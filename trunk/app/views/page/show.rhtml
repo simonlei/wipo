@@ -21,7 +21,7 @@
       <div class="cleared">&nbsp;</div>
 
       <div class="EntryContent">
-        <%= markup @page %>
+        <%= markup @page.space, @page.content %>
       </div>
     </span>
   </span>
@@ -29,34 +29,8 @@
   <div class="tabletitle" style="border: 0px">
     <a name="comments">留言</a>
   </div>
-  <span>
-    <% if @page.comments.size != 0 %>
-    <div class="CommentBox">
-      <div>
-        <% @comments.each do |comment| %>
-        <div class="CommentDesc"> 
-          <%= url_for_user comment.user%> 留言于 <%= time_to_str comment.created_at%>。</div>
-          <div class="CommentContent">
-            <%= comment.comment %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-    <% end %>
-  </span>
 
-  <% if current_user.is_anonymous? %>
-    Please <%= link_to "login", :controller=>"/active_rbac/login", :action=>"login", 
-      :return_to=>(url_for :controller=>"page", :action=>"show", :id=>@page.id) %> before you can comment!
-  <% else %>
-  <div class="add-comment">
-    请写下您的留言
-    <%= form_tag :action => "comment", :id => @page.id %>
-      <%= text_area "comment", "comment", "cols"=>60, "rows"=>5 %><br/>
-      <%= submit_tag "添加" %>
-    </form>
-  </div>
-  <% end %>
+  <%= render :partial => "comments" %>
 </div>
 
 
