@@ -10,6 +10,9 @@ class UserController < ApplicationController
   end
 
   def view_count
+    if params[:a] != 'show'
+      return render :text=>""
+    end
     if params[:id].nil?
       object_type = 'Main' 
     else
