@@ -1,21 +1,23 @@
-<div id="SingleContent">
-  <span>
-    <% if @page.comments.size != 0 %>
-    <div class="CommentBox">
-      <div>
-        <% @page.comments.each do |comment| %>
-        <div class="CommentDesc"> 
-          <%= url_for_user comment.user%> 留言于 <%= time_to_str comment.created_at%>。</div>
-          <div class="CommentContent">
-            <%= comment.comment %>
-          </div>
-        <% end %>
+<span>
+  <% if @page.comments.size != 0 %>
+  <div class="CommentBox">
+    <div>
+      <% @page.comments.each do |comment| %>
+      <div class="CommentDesc"> 
+        <%= url_for_user comment.user%> 留言于 <%= time_to_str comment.created_at%>。</div>
+      <div class="CommentContent">
+        <%= markup @page.space, comment.comment %>
       </div>
+      <% end %>
     </div>
-    <% end %>
-  </span>
+  </div>
+  <% end %>
+</span>
 
-  <% if !current_user.is_anonymous? %>
+<% if current_user.is_anonymous? %>
+  Please <%= link_to "login", :controller=>"/active_rbac/login", :action=>"login", 
+    :return_to=>(url_for :controller=>"page", :action=>"show", :id=>@page.id) %> before you can comment!
+<% else %>
   <div class="add-comment">
     请写下您的留言
     <%= form_tag :action => "comment", :id => @page.id %>
@@ -23,5 +25,4 @@
       <%= submit_tag "添加" %>
     </form>
   </div>
-  <% end %>
-</div>
+<% end %>

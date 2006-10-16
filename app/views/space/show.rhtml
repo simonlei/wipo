@@ -23,7 +23,7 @@ end
             <% @recent_updated.each do |page| %>
 	    <tr valign="top">
               <td>
-                <%= link_to page.title, :controller => "page", :action => "show", :id => page.id %>
+                <%= link_to truncate(page.title), :controller => "page", :action => "show", :id => page.id %>
                 <br/>
                 <span class="smalltext">
                   <span><%= url_for_user page.user %></span>(<span><%= page.log_date %></span>)
@@ -108,7 +108,7 @@ end
             <div class="EntryTitle">
               <%= link_to h(blog.title), :controller=>"page", :action=>"show", :id=>blog %>
             </div> 
-            <div class="EntryContent"><%= markup(blog) %>
+            <div class="EntryContent"><%= markup(blog.space, blog.content) %>
             </div>
             <div class="EntryDesc" style="text-align: right;">
               <span><%= time_to_str blog.updated_at %></span> | <!--<img src="resources/wipo/user" align="absmiddle">-->

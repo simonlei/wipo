@@ -61,6 +61,7 @@ The recent update of comments
 
 Oct.16,2006
 Add the support of page view counter
+Render the comment, just like render wiki page
 
 TODO:
 Manage the previlidges
@@ -75,4 +76,3 @@ Add the home page for the users
 Add the support of personal space
 Fix the bug when delete a page, should redirect to the space with id
 Support macro
-Render the comment, just like render wiki page

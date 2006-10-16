@@ -106,9 +106,9 @@ module ApplicationHelper
     end
   end
 
-  def markup page, existing_page=nil 
-    existing_page_titles = page.space.existing_page_titles if existing_page.nil?
-    return WipoRedCloth.new(page.space, page.content, existing_page_titles,self).to_html( :refs_insert_wiki_links, :refs_auto_link, *RedCloth::DEFAULT_RULES) 
+  def markup space, content, existing_page=nil 
+    existing_page_titles = space.existing_page_titles if existing_page.nil?
+    return WipoRedCloth.new(space, content, existing_page_titles,self).to_html( :refs_insert_wiki_links, :refs_auto_link, *RedCloth::DEFAULT_RULES) 
   end
 
   def differences(original, new)
