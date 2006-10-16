@@ -66,3 +66,4 @@ GIGA = MILLION*KILO
 # session will expire in one month
 CGI::Session.expire_after 1.month
 
+$KCODE = 'UTF8'

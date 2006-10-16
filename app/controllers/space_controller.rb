@@ -33,10 +33,6 @@ class SpaceController < ApplicationController
   def show
     SpaceHelper.getDatePeriod params
 
-    # sum the view count
-    # in the user_controller now
-    get_view_count
-
     @spaces = Space.find(:all)
     @year = params[:year] 
     @month = params[:month] 
@@ -68,27 +64,6 @@ class SpaceController < ApplicationController
   end
   
   private
-
-  def get_view_count
-    if params[:id]
-      @view_count = ViewCount.find :first, :conditions=> " object_type='Space' and object_id=#{params[:id]} " 
-    else
-      @view_count = ViewCount.find :first, :conditions=> " object_type='Main' " 
-    end
-    if @view_count == nil
-      @view_count = ViewCount.new
-      @view_count.count = 0
-      if params[:id] == nil
-        @view_count.object_type = 'Main'
-      else
-        @view_count.object_type = 'Space'
-        @view_count.object_id = params[:id]
-      end
-    end
-
-    @view_count.count += 1
-    @view_count.save
-  end
 
   def sort_weblogs_by_day( weblogs)
     weblogs_by_day = {}
