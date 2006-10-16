@@ -73,4 +73,4 @@ Add the home page for the users
 Add the support of personal space
 Fix the bug when delete a page, should redirect to the space with id
 Support macro
-Support pagination at home page
+Render the comment, just like render wiki page

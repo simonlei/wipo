@@ -34,6 +34,7 @@ class SpaceController < ApplicationController
     SpaceHelper.getDatePeriod params
 
     # sum the view count
+    # in the user_controller now
     get_view_count
 
     @spaces = Space.find(:all)

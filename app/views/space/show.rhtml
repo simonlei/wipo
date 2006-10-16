@@ -14,14 +14,11 @@
 end
 %>
         </span>
-        <br/> 
-        <span>本页面已访问 <%= @view_count.count %> 次。</span>
-        <%= link_to( image_tag( "xml.gif", :border=>0), :controller=>"page", :action=>"feed") %>
       </div>
       <!-- The Updates -->
       <span>
         <div class="sidebar">
-          <div class="sidebarHeader"> 更新 </div> 
+          <div class="sidebarHeader"> 更新 <%= link_to( image_tag( "xml.gif", :border=>0), :controller=>"page", :action=>"feed") %></div> 
 	  <table class="sidebarContent" cellpadding="0" cellspacing="0" border="0">
             <% @recent_updated.each do |page| %>
 	    <tr valign="top">
