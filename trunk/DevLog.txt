@@ -63,6 +63,9 @@ Oct.16,2006
 Add the support of page view counter
 Render the comment, just like render wiki page
 
+Oct.17,2006
+Fix the bug, when the page cache with anonymous user.
+
 TODO:
 Manage the previlidges
 Compability with the previous text format

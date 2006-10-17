@@ -17,7 +17,6 @@ class ApplicationController < ActionController::Base
     if current_user.has_role?("Admin")
       return true
     elsif (current_user.is_anonymous? || (["delete"].include? action_name) || (["static_permission","user","role"].include? controller_name))
-      puts action_name.class
       redirect_to "/active_rbac/login/login?return_to=#{request.request_uri}"
       flash[:notice] = "You are not allowed to access this page" 
       return false 

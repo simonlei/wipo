@@ -1,7 +1,7 @@
 class PageController < ApplicationController
   scaffold :page
   cache_sweeper :page_sweeper
-  caches_page :show, :displaypage
+  #caches_page :show, :displaypage
 
   def comments
     @page = Page.find params[:id]
