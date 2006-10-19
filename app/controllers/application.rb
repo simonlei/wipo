@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   include ActiveRbacMixins::ApplicationControllerMixin
 
   before_filter :set_charset 
-  before_filter :protect_controller, :except => [ :list, :index, :show, :welcome, :login, :download, :feed, :search, :displaypage, :show_home, :loginbox, :show_month, :comments, :view_count]
+  before_filter :protect_controller, :except => [ :list, :index, :show, :welcome, :login, :download, :feed, :search, :displaypage, :show_home, :loginbox, :show_month, :comments, :view_count, :sitemap]
   
   def protect_controller 
     if current_user.has_role?("Admin")
