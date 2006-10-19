@@ -62,6 +62,12 @@ class SpaceController < ApplicationController
     @space = Space.find( params[:id]) if params[:id]
     render "space/show"
   end
+
+  def sitemap
+    @pages = Page.find :all, :order => 'updated_at DESC'
+    @headers["Content-Type"] = "application/xml"
+    render :layout=>false
+  end
   
   private
 
@@ -75,5 +81,4 @@ class SpaceController < ApplicationController
     end
     return weblogs_by_day
   end
-
 end

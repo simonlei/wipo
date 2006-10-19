@@ -66,6 +66,9 @@ Render the comment, just like render wiki page
 Oct.17,2006
 Fix the bug, when the page cache with anonymous user.
 
+Oct.19,2006
+Generate one index page for all the pages, for search engines, sitemap.xml
+
 TODO:
 Manage the previlidges
 Compability with the previous text format
