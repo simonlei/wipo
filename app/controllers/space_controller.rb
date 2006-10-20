@@ -5,14 +5,15 @@ class SpaceController < ApplicationController
 
   # 用 yyyymm*10000+space_id 来做为展示哪个space的哪个月份
   def show_month
-    id=params[:id].to_i
-    params[:year]=id/1000000
-    month=(id-params[:year]*1000000)/10000
-    params[:month]=month if month>0
-    space_id=id%10000
-    params[:id]=space_id if space_id>0
-    params[:id]=nil if space_id==0
-    #render :action => "show"
+    if !(params[:id].nil?)
+      id=params[:id].to_i
+      params[:year]=id/1000000
+      month=(id-params[:year]*1000000)/10000
+      params[:month]=month if month>0
+      space_id=id%10000
+      params[:id]=space_id if space_id>0
+      params[:id]=nil if space_id==0
+    end
     show
   end
 
