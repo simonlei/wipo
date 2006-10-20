@@ -21,11 +21,11 @@ ActionController::Routing::Routes.draw do |map|
 
   # Allow downloading Web Service WSDL as a file with an extension
   # instead of a file named 'wsdl'
+  map.connect '/sitemap.xml', :controller=>'space', :action => 'sitemap'
   map.connect ':controller/service.wsdl', :action => 'wsdl'
   map.display_page 'display/:space_name/:page_title', :controller=>'page', :action=>'displaypage'
 
   # Install the default route as the lowest priority.
-  map.connect ':controller/:action\?id=:id'
   map.connect ':controller/:action/:id'
   map.connect 'jspwiki/pages/viewblog', :controller=>'page', :action=>'show'
   map.connect 'jspwiki/pages/viewwiki', :controller=>'page', :action=>'show'
