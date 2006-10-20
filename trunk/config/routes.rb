@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
             :controller => 'active_rbac/registration', 
             :action => 'confirm'
 
-  map.connect '', :controller => "space", :action => "show"
+  map.connect '', :controller => "space", :action => "show_month", :id=>nil
             
   # The priority is based upon order of creation: first created -> highest priority.
   
@@ -25,6 +25,7 @@ ActionController::Routing::Routes.draw do |map|
   map.display_page 'display/:space_name/:page_title', :controller=>'page', :action=>'displaypage'
 
   # Install the default route as the lowest priority.
+  map.connect ':controller/:action\?id=:id'
   map.connect ':controller/:action/:id'
   map.connect 'jspwiki/pages/viewblog', :controller=>'page', :action=>'show'
   map.connect 'jspwiki/pages/viewwiki', :controller=>'page', :action=>'show'
