@@ -69,9 +69,12 @@ Fix the bug, when the page cache with anonymous user.
 Oct.19,2006
 Generate one index page for all the pages, for search engines, sitemap.xml
 
+Oct.20,2006
+Compability with the previous text format
+Fix the bug with preview
+
 TODO:
 Manage the previlidges
-Compability with the previous text format
 Add the support of version
 Add the support of more_like_this of acts_as_ferret
 Add the tree support for the pages 

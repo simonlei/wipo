@@ -13,8 +13,7 @@
     <%= hidden_field "page", "type" %>
     <tr><td colspan="2" align='center'>
       <%= submit_tag '更新' %>
-      <%= submit_tag '取消', :onclick => "form.action='" + 
-          url_for(:action=>'show', :id=>@page) + "';form.method='get';form.submit()" %>
+      <%= submit_tag '取消', :onclick=>"history.go(-1)"%>
       <%= submit_to_remote 'preview', '预览', 
       :url=>{ :action=>'preview'},
           #:html=> { :action => url_for( :controller=>'page', :action=>'preview')}, 
