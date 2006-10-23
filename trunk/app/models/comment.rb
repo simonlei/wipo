@@ -1,4 +1,5 @@
 class Comment < ActiveRecord::Base
+  acts_as_ferret({},{:analyzer=>Ferret::Analysis::RegExpAnalyzer.new(/./,false)})
   belongs_to :commentable, :polymorphic => true
   
   # NOTE: install the acts_as_votable plugin if you 

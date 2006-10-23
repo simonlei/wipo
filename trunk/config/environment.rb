@@ -68,16 +68,3 @@ CGI::Session.expire_after 1.month
 
 $KCODE = 'UTF8'
 
-#fix for UJS plugin bug with page caching.
-module UJS
-  module BehaviourCaching
-    module ControllerClassMethods
-      def caches_behaviour(*actions)
-        actions.each do |action|
-          class_eval "prepend_before_filter { |c| c.cache_behaviours ||= (c.action_name == '#{action}'); true }"
-        end
-      end
-    end
-  end
-end
-

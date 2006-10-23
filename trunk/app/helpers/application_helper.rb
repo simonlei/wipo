@@ -1,6 +1,13 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
+  def include space, page_title
+    render(:controller=>"page", :action=>"displaypage", :space_name=>space.name, :page_title=>page_title)
+  end
 
+  def dailyComic space, param
+    time = Time.now
+    "<img src=\"#{time.strftime( param)[1..-1]}\"/>"
+  end
 
   def url_for_user user
     if user.personal_space_id > 0
@@ -59,6 +66,8 @@ module ApplicationHelper
                 ([[:punct:]]|\s|<|$)    # trailing text
                /x unless const_defined?(:AUTO_LINK_RE)
 
+  MACRO_RE= /(^|[^\{])\{(\w*)(:[^}*]*)?\}/ unless const_defined?(:MACRO_RE)
+
   class WipoRedCloth < RedCloth
     def initialize(space, text, existing_wiki_pages, rails_helper)
       super(text)
@@ -66,6 +75,13 @@ module ApplicationHelper
       @rails_helper = rails_helper
       @space = space
       #breakpoint
+    end
+
+    def block_macro_run(text)
+      text.gsub!(MACRO_RE) do
+        macro_name, parameters = $2, $3
+        @rails_helper.send( macro_name, @space, parameters)
+      end
     end
 
     # TextHelper's auto link doesn't change text, so I rewrite it.
@@ -108,7 +124,7 @@ module ApplicationHelper
 
   def markup space, content, existing_page=nil 
     existing_page_titles = space.existing_page_titles if existing_page.nil?
-    return WipoRedCloth.new(space, content, existing_page_titles,self).to_html( :refs_insert_wiki_links, :refs_auto_link, *RedCloth::DEFAULT_RULES) 
+    return WipoRedCloth.new(space, content, existing_page_titles,self).to_html( :refs_insert_wiki_links, :refs_auto_link, :block_macro_run, *RedCloth::DEFAULT_RULES) 
   end
 
   def differences(original, new)
