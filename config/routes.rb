@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  UJS::routes
   # ActiveRbac's RegistrationController confirmation action needs a special route
   map.connect '/active_rbac/registration/confirm/:user/:token', 
             :controller => 'active_rbac/registration', 
