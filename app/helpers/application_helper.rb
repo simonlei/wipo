@@ -1,7 +1,8 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   def include space, page_title
-    render(:controller=>"page", :action=>"displaypage", :space_name=>space.name, :page_title=>page_title)
+    page=Page.find :first, :conditions=>["title=? and space_id=?", page_title[1..-1], space.id]
+    markup space,page.content
   end
 
   def dailyComic space, param
