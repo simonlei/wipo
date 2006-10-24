@@ -1,11 +1,16 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
-  def include space, page_title
-    page=Page.find :first, :conditions=>["title=? and space_id=?", page_title[1..-1], space.id]
-    markup space,page.content
+
+  def include page, page_title
+    page_included=Page.find :first, :conditions=>["title=? and space_id=?", page_title[1..-1], page.space.id]
+    markup page_included, page_included.content
   end
 
-  def dailyComic space, param
+  def code page, param
+    "<pre>"
+  end
+
+  def dailyComic page, param
     time = Time.now
     "<img src=\"#{time.strftime( param)[1..-1]}\"/>"
   end
@@ -70,18 +75,18 @@ module ApplicationHelper
   MACRO_RE= /(^|[^\{])\{(\w*)(:[^}*]*)?\}/ unless const_defined?(:MACRO_RE)
 
   class WipoRedCloth < RedCloth
-    def initialize(space, text, existing_wiki_pages, rails_helper)
+    def initialize(page, text, existing_wiki_pages, rails_helper)
       super(text)
       @existing_wiki_pages = existing_wiki_pages
       @rails_helper = rails_helper
-      @space = space
+      @page = page
       #breakpoint
     end
 
     def block_macro_run(text)
       text.gsub!(MACRO_RE) do
         macro_name, parameters = $2, $3
-        @rails_helper.send( macro_name, @space, parameters)
+        @rails_helper.send( macro_name, @page, parameters)
       end
     end
 
@@ -103,8 +108,17 @@ module ApplicationHelper
       text.gsub!(Page::PAGE_LINK) do
         page = title = $1
         page = $2 unless $2.empty?
-        if page =~ /^http/
+        if page =~ /^\d+$/ # it's a id
+          @rails_helper.link_to title, :controller=>"page", :action=>"show", :id=>page.to_i
+        elsif page =~ /^http/ # it's a link already
           "<a href=\"#{page}\">#{title}</a>"
+        elsif page =~ /^\^/ # it's a ref to attach
+          page=page[1..-1]
+          if page =~ /(jpg|jpeg|gif|bmp|png)$/i # it's a img
+            "<img src=\"#{@rails_helper.url_for(:controller=>"page", :action=>"download_attach", :page_id=>@page.id, :name=>page)}\" />"
+          else # give the link
+            @rails_helper.link_to(title, :controller=>"page", :action=>:download_attach, :page_id=>@page.id, :name=>page)
+          end
         elsif @existing_wiki_pages.include?(page)
           @rails_helper.link_to(title, page_url(page), :class => "existingWikiWord")
         else
@@ -115,17 +129,17 @@ module ApplicationHelper
 
     private
     def new_page_url title
-      @rails_helper.url_for :controller=>"page", :action=>"new", :space_id=>@space.id, :type=>"Wiki", :title=>title
+      @rails_helper.url_for :controller=>"page", :action=>"new", :space_id=>@page.space.id, :type=>"Wiki", :title=>title
     end
 
     def page_url title
-      @rails_helper.display_page_url :space_name => @space.name, :page_title=>title
+      @rails_helper.display_page_url :space_name => @page.space.name, :page_title=>title
     end
   end
 
-  def markup space, content, existing_page=nil 
-    existing_page_titles = space.existing_page_titles if existing_page.nil?
-    return WipoRedCloth.new(space, content, existing_page_titles,self).to_html( :refs_insert_wiki_links, :refs_auto_link, :block_macro_run, *RedCloth::DEFAULT_RULES) 
+  def markup page, content, existing_page=nil 
+    existing_page_titles = page.space.existing_page_titles if existing_page.nil?
+    return WipoRedCloth.new(page, content, existing_page_titles,self).to_html( :refs_insert_wiki_links, :refs_auto_link, :block_macro_run, *RedCloth::DEFAULT_RULES) 
   end
 
   def differences(original, new)

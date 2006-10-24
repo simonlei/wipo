@@ -108,7 +108,7 @@ end
             <div class="EntryTitle">
               <%= link_to h(blog.title), :controller=>"page", :action=>"show", :id=>blog %>
             </div> 
-            <div class="EntryContent"><%= markup(blog.space, blog.content) %>
+            <div class="EntryContent"><%= markup(blog, blog.content) %>
             </div>
             <div class="EntryDesc" style="text-align: right;">
               <span><%= time_to_str blog.updated_at %></span> | <!--<img src="resources/wipo/user" align="absmiddle">-->

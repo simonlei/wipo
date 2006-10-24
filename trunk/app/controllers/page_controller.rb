@@ -8,6 +8,11 @@ class PageController < ApplicationController
     @comments_str=render_to_string :partial => "comments"
   end
 
+  def download_attach
+    attach = Attachment.find :first, :conditions=>["name=? and page_id=?", params[:name], params[:page_id]]
+    redirect_to :controller=>"attachment", :action=>"download", :id=>attach.id
+  end
+
   def displaypage
     space_name = params[:space_name]
     space_name = space_name[1..-1] if space_name[0]==126 # is ~
