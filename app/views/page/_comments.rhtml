@@ -6,7 +6,7 @@
       <div class="CommentDesc"> 
         <%= url_for_user comment.user%> 留言于 <%= time_to_str comment.created_at%>。</div>
       <div class="CommentContent">
-        <%= markup @page.space, comment.comment %>
+        <%= markup @page, comment.comment %>
       </div>
       <% end %>
     </div>
