@@ -5,7 +5,7 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '1.1.6'
+RAILS_GEM_VERSION = '1.2.2'
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -51,12 +51,7 @@ end
 # end
 
 # Include your application configuration below
-module ActiveRbacConfig
-  # controller and layout configuration
-  config :controller_layout, "base"
-end
-
-Engines.start :active_rbac
+ActiveRbac.controller_layout = "base"
 
 ATTACHMENT_DIR= File.join( RAILS_ROOT, "db", "attachments")
 KILO = 1024
@@ -64,7 +59,7 @@ MILLION = KILO*KILO
 GIGA = MILLION*KILO
 
 # session will expire in one month
-CGI::Session.expire_after 1.month
+#CGI::Session.expire_after 1.month
 
 $KCODE = 'UTF8'
 

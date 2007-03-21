@@ -1,3 +1,6 @@
+March.4.2007
+update active rbac, support rails 1.2
+
 Sep.05,2006
 Add the active_rbac support
 Add the acts_as_comment support
