@@ -1,2 +1,0 @@
-class Weblog < Page
-end

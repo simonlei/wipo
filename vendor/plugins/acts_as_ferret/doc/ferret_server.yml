@@ -1,9 +1,0 @@
-production:
-  host: ferret.yourdomain.com
-  port: 9010
-development:
-  host: localhost
-  port: 9010
-test:
-  host: localhost
-  port: 9009

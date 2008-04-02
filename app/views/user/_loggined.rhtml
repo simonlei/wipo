@@ -1,7 +1,0 @@
-用户: <span><%= url_for_user current_user%></span>  
-<% if current_user.personal_space_id > 0 %>
-| <%= link_to '添加blog页', :controller=>'page', :action=>'new', :space_id=>current_user.personal_space_id, :type=>'Weblog' %> 
-<% end %>
-| <%= link_to "管理", :controller => "/active_rbac/my_account", :action => "change_password" %> 
-| <%= link_to "登出", :controller => "/active_rbac/login", :action => "logout" %>
-
