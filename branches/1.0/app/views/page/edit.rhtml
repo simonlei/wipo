@@ -1,0 +1,15 @@
+<h1>Editing page</h1>
+
+<span class="pagetitle"><%= @page.title %></span>
+
+<%= render :partial => "header" %>
+
+<%= error_messages_for 'page' %>
+
+<div id='previews'>
+</div>
+
+<%= start_form_tag :action => 'update', :id => @page%>
+  <%= render :partial => "form" %>
+<%= end_form_tag %>
+

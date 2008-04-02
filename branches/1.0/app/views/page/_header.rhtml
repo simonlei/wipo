@@ -1,0 +1,25 @@
+
+<div class="pagebody">
+  <div class="greynavbar">
+    <span style="float:right; padding: 6px 10px 4px 0px">
+      <%= link_to '浏览空间', :controller=>'page', :action=>'list', :id=>@page.space_id %>
+      &nbsp;
+      <%= link_to '添加wiki页', :controller=>'page', :action=>'new', :space_id=>@page.space_id %>
+      &nbsp;
+      <%= link_to '添加blog页', :controller=>'page', :action=>'new', :space_id=>@page.space_id, :type=>'Weblog' %>
+    </span>
+    <ul id="foldertab" style="margin-bottom: 0px; padding-top: 10px;">
+      <li>
+      <%= link_to_unless_current "<span>查看(<u>V</u>)</span>", {:controller=>"page", :action=>"show", :id=>@page},
+          :id => "notcurrent" %>
+      </li><li>
+      <%= link_to_unless_current "<span>修改(<u>E</u>)</span>", {:controller=>"page", :action=>"edit", :id=>@page},
+          :id => "notcurrent" %>
+      </li><li>
+      <%= link_to_unless_current "<span>附件(<u>A</u>) - " + @page.attachments.size.to_s + "</span>", 
+          {:controller=>"attachment", :action=>"list", :id=>@page}, :id => "notcurrent" %>
+      </li>
+    </ul>
+  </div>
+</div>
+

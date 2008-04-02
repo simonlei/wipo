@@ -1,0 +1,90 @@
+March.4.2007
+update active rbac, support rails 1.2
+
+Sep.05,2006
+Add the active_rbac support
+Add the acts_as_comment support
+gem install redcloth
+gem install sqlite3-ruby
+
+Sep.06,2006
+Add the wiki_engine support
+
+Sep.09,2006
+Remove the wiki_engine support, decide to write a wiki by myself.
+
+Sep.24,2006
+Add the support of attachment
+Add the support of preview
+Add the support of rss
+
+Sep.27,2006
+Add the creator and modifier to the pages
+Add the tree support for the pages in model
+
+Oct.01,2006
+Migrate data from hsql
+
+Oct.02,2006
+gem install ferret
+plugin install -x acts_as_ferre
+Add the support of search
+
+Oct.03,2006
+plugin install acts_as_versioned
+
+Oct.08,2006
+Add powered by logo of rails
+
+Oct.09,2006
+Add the url for user, will add personal space for user
+
+Oct.10,2006
+Add the css for username
+Add the support to user space name and page title as url
+Can create blog easier
+Unique page title in one space validation
+
+Oct.11,2006
+Cookies for login user
+
+Oct.13,2006
+Support cache
+
+Oct.14,2006
+Write comment by myself.
+The problem of pagination with cache
+Generate static pages for search engines
+Redirect to the request url after login
+Support of quick comment
+
+Oct.15,2006
+The ajax part of quick comment
+The recent update of comments
+
+Oct.16,2006
+Add the support of page view counter
+Render the comment, just like render wiki page
+
+Oct.17,2006
+Fix the bug, when the page cache with anonymous user.
+
+Oct.19,2006
+Generate one index page for all the pages, for search engines, sitemap.xml
+
+Oct.20,2006
+Compability with the previous text format
+Fix the bug with preview
+
+TODO:
+Manage the previlidges
+Add the support of version
+Add the support of more_like_this of acts_as_ferret
+Add the tree support for the pages 
+Add the virtual delete for the pages
+Add the support of mime of attachment for download
+Add the support of label/tag
+Add the home page for the users
+Add the support of personal space
+Fix the bug when delete a page, should redirect to the space with id
+Support macro

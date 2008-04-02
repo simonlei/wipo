@@ -1,0 +1,766 @@
+body { background-color: #fff; color: #333; }
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; background-color:#000; }
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#ErrorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#ErrorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#ErrorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#ErrorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+div.uploadStatus {
+  margin: 5px;
+}
+
+div.progressBar {
+  margin: 5px;
+}
+
+div.progressBar div.border {
+  background-color: #fff;
+  border: 1px solid grey;
+  width: 100%;
+}
+
+div.progressBar div.background {
+  background-color: #333;
+  height: 18px;
+  width: 0%;
+}
+
+/* START:css */
+.ListTitle {
+  	color:       #244;
+	font-weight: bold;
+  	font-size:   larger;
+}
+
+.ListActions {
+ 	font-size:    x-small;
+        text-align:   right;
+	padding-left: 1em;
+}
+
+.ListLine0 {
+        background: #e0f8f8;
+}
+
+.ListLine1 {
+        background: #f8b0f8;
+}
+/* END:css */
+
+body, p, div, table, tr {
+	font-family: verdana, arial, sans-serif;
+	font-size: 9pt;
+	line-height: 1.5em; /*letter-spacing: 1px;*/
+	color: darkslategray;
+	font-weight: normal;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+}
+
+ul, ol {
+	margin-top: 2px;
+	margin-bottom: 2px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+
+table.with-border {
+	border: 2px solid chocolate;
+	padding: 15px;
+	background-color: wheat;
+}
+
+div.cleared {
+	clear: both;
+	line-height: 0px;
+}
+
+.CommentBox {
+	border: 2px solid chocolate;
+	margin-left: 5px;
+	margin-bottom: 5px; /*padding-top: 5px;*/
+	padding-bottom: 5px;
+	width: 70%;
+
+}
+
+.CommentDesc {
+	color: chocolate;
+	font-size: 9pt; /*font-style: italic;*/
+/*border-bottom: 1px solid chocolate;*/
+	background: wheat;
+	padding-left: 10px;
+}
+
+.CommentContent {
+	margin: 8px;
+}
+
+pre, pre p {
+	font-family: Courier New;
+	font-size: 9pt;
+}
+
+span.xml-tag {
+	color: navy;
+	font-weight: bold;
+}
+
+span.xml-quote {
+	color: #006400;
+	font-weight: bold;
+}
+
+.java-keyword {
+	color: #000091;
+	background-color: inherit;
+	font-weight: bold;
+}
+
+.java-object {
+	color: #910091;
+	background-color: inherit;
+}
+
+.java-quote {
+	color: #009100;
+	background-color: inherit;
+}
+
+.java-comment {
+	color: #808080;
+	background-color: inherit;
+}
+
+.code-xml .code-keyword {
+	color: inherit;
+	font-weight: bold;
+}
+
+.code-tag {
+	color: #000091;
+	background-color: inherit;
+}
+
+.formtitle {
+	padding-top: 10px;
+	text-align: left;
+	font-size: 12px;
+	font-weight: bold;
+	font-family: Arial, sans-serif;
+	color: #003366;
+}
+
+hr {
+	color: chocolate;
+	background-color: chocolate;
+	border: 1px solid chocolate;
+	height: 1px;
+}
+
+h1 A:link, h1 A:visited, h1 A:active {
+	text-decoration: none;
+}
+
+h1 A:hover {
+	border-bottom: 1px dotted #003366;
+}
+
+h1 {
+	font-size: 24px;
+	line-height: normal;
+	font-weight: bold;
+	background-color: #f0f0f0;
+	color: #003366;
+	border-bottom: 1px solid #3c78b5;
+	padding: 2px;
+	margin: 5px 0px 15px 0px;
+}
+
+h2 {
+	font-size: 18px;
+	line-height: normal;
+	font-weight: bold;
+	background-color: #f0f0f0;
+	border-bottom: 1px solid #3c78b5;
+	padding: 2px;
+	margin: 27px 0px 4px 0px;
+}
+
+h3 {
+	font-size: 14px;
+	line-height: normal;
+	font-weight: bold;
+	background-color: #f0f0f0;
+	padding: 2px;
+	margin: 21px 0px 4px 0px;
+}
+
+h4 {
+	font-size: 12px;
+	line-height: normal;
+	font-weight: bold;
+	background-color: #f0f0f0;
+	padding: 2px;
+	margin: 18px 0px 4px 0px;
+}
+
+h4.search {
+	font-size: 12px;
+	line-height: normal;
+	font-weight: normal;
+	background-color: #f0f0f0;
+	padding: 4px;
+	margin: 18px 0px 4px 0px;
+}
+
+h5 {
+	font-size: 10px;
+	line-height: normal;
+	font-weight: bold;
+	background-color: #f0f0f0;
+	padding: 2px;
+	margin: 14px 0px 4px 0px;
+}
+
+h6 {
+	font-size: 8px;
+	line-height: normal;
+	font-weight: bold;
+	background-color: #f0f0f0;
+	padding: 2px;
+	margin: 14px 0px 4px 0px;
+}
+
+.smalltext {
+	color: #666666;
+	font-size: 9pt;
+}
+
+.smalltext a {
+	color: #666666;
+}
+
+.error {
+	background-color: #fcc;
+}
+
+blockquote {
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-left: 5px;
+	margin-right: 0px;
+	border-left: 1px solid #3c78b5;
+}
+
+.preview-content {
+	border: 1px solid #3c78b5;
+	padding: 0px;
+}
+
+.preview-content th {
+	background-color: #d3d3d3;
+	text-align: center;
+}
+
+.wiki-table {
+	border: 1px solid chocolate;
+	background-color: wheat;
+	border-collapse: collapse;
+}
+
+.wiki-table th, td {
+	padding: 4px; /*border: 1px solid #3c78b5;*/
+}
+
+.wiki-table th {
+	font-weight: bold;
+	background-color: chocolate;
+	color: white;
+}
+
+.tableview table {
+	margin: 0;
+	width: 90%;
+}
+
+.tableview th {
+	text-align: left;
+	color: #003366;
+	font-size: 12px;
+	padding: 5px 0px 0px 5px;
+	border-bottom: 2px solid chocolate;
+}
+
+.tableview td {
+	text-align: left;
+	border-color: khaki;
+	border-width: 0px 0px 1px 0px;
+	border-style: solid;
+	margin: 0;
+	padding: 4px 10px 4px 5px;
+}
+
+.logintable {
+	margin: 20px;
+	padding: 5px;
+}
+
+input, textarea {
+	font-family: Courier New;
+	font-size: 9pt;
+	border: 1px solid chocolate;
+	padding: 2px;
+	background: oldlace;
+}
+
+img {
+	border-width: 0;
+}
+
+/* list page navigational tabs */
+#foldertab {
+	padding: 3px 0px 3px 8px;
+	margin-left: 0;
+	border-bottom: 1px solid chocolate;
+	font: bold 9pt tahoma;
+}
+
+#foldertab li {
+	list-style: none;
+	margin: 0;
+	display: inline;
+}
+
+#foldertab li a {
+	padding: 3px 0.5em;
+	margin-left: 3px;
+	border: 1px solid chocolate;
+	border-bottom: none; /*background: #3c78b5;*/
+	background: wheat;
+	text-decoration: none;
+	color: black;
+
+}
+
+#foldertab li a:link {
+/*color: white;*/
+}
+
+#foldertab li a:visited {
+/*color: white;*/
+}
+
+#foldertab li a:hover {
+	color: #ffffff;
+	background: chocolate;
+	border-color: chocolate;
+}
+
+#foldertab li a#current {
+	background: white;
+	border-bottom: 1px solid white;
+	color: black;
+}
+
+.pagetitle {
+	font-size: 22px;
+	font-weight: bold;
+	font-family: Arial, sans-serif;
+	color: #003366;
+	padding: 0px;
+	margin: 0px;
+	text-decoration: none;
+}
+
+.greynavbar {
+	background-color: wheat;
+	border-top: 1px solid chocolate;
+	margin-top: 2px;
+}
+
+.tabletitle {
+	font-size: 14px;
+	font-weight: bold;
+	font-family: Arial, sans-serif;
+	padding: 3px 0px 2px 0px;
+	margin: 8px 4px 2px 0px;
+	color: #003366;
+	border-bottom: 2px solid #3c78b5;
+}
+
+.bottomshadow {
+	height: 12px;
+	background-image: url( "images/border_bottom.gif" );
+	background-repeat: repeat-x;
+}
+
+span.link-not-found {
+	background-color: lightpink;
+	/*color: antiquewhite;*/
+}
+
+a {
+	color: red;
+}
+
+a:visited {
+	color: brown;
+}
+
+#Header {
+	padding: 0px;
+}
+
+div.topBar {
+	padding: 3px;
+	background-color: saddlebrown;
+}
+
+div.topBarTitle {
+	float: left;
+	color: white;
+}
+
+.topBarTitle a {
+	color: inherit; /*text-decoration: none;*/
+}
+
+.topBarTitle a:visited {
+	color: white; 
+}
+
+.searchForm {
+	float: right;
+	background-color: inherit;
+}
+
+.loginBox {
+	float: right;
+	color: #666666;
+	font-size: 9pt;
+}
+
+.loginBox a {
+	color: inherit;
+}
+
+#Content {
+	margin-top: 20px;
+}
+
+#LeftMenu {
+	width: 200px;
+	padding-left: 10px;
+	margin-right: 15px;
+	margin-left: 15px; /*background-color: aliceblue;*/
+	border-left: 2px solid chocolate;
+}
+
+#ContentBody {
+	width: 1800px;
+	padding-left: 5px;
+}
+
+#SingleContent {
+	padding: 10px;
+}
+
+#poweredby {
+	margin-top: 20px;
+	text-align: center;
+	background: wheat;
+	border-top: 1px solid chocolate;
+}
+
+.sidebar {
+	padding-top: 5px;
+	margin-bottom: 10px;
+}
+
+.sidebarHeader {
+	font-weight: bold;
+	margin-bottom: 5px;
+	border-bottom: 2px solid chocolate;
+	color: chocolate;
+	font-size: 14px;
+}
+
+.sidebarContent {
+/*line-height: 1.6em;*/
+}
+
+.sidebarContent td {
+	padding: 0;
+}
+
+.DateTitle {
+	line-height: 30px;
+	font-size: 20px; /*font-weight: normal;*/
+	color: #003366; /*margin: 10px;*/
+/*padding: 3px;*/
+/*background-color: chocolate;*/
+}
+
+.EntryBox {
+/*border: 2px solid chocolate;*/
+/*margin: 10px;*/
+}
+
+.EntryTitle {
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 1.5em;
+	padding: 3px;
+	color: sienna;
+	text-decoration: none;
+	background-color: wheat;
+	border-bottom: 1px solid chocolate;
+}
+
+.EntryTitle a {
+	color: sienna;
+	text-decoration: none;
+}
+
+.EntryContent {
+	padding: 10px; /*color: #444;*/
+/*letter-spacing: 1px;*/
+/*line-height: 1.5em; */
+/*font-size: 14px;*/
+	font-family: Verdana, arial, sans-serif;
+}
+
+.EntryDesc {
+	padding: 5px; /*text-align: right;*/
+	color: chocolate;
+	font-size: 12px; /*font-weight: bold;*/
+}
+
+.Menu {
+	margin-bottom: 10px;
+}
+
+.Calendar {
+	border: 2px solid chocolate;
+	border-collapse: collapse;
+	font-family: arial;
+}
+
+.Calendar th {
+	background: wheat;
+	border-bottom: 1px solid chocolate;
+}
+
+.Calendar td {
+	text-align: center;
+	padding: 0px; /*font-family: monospace;*/
+}
+
+.Calendar table td a {
+	text-decoration: none;
+}
+
+ul.minus {
+	list-style: square;
+}
+
+ul.star {
+	list-style: disc;
+}
+
+.navmenu .operations li, .navmenu .operations ul {
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.navmenu .operations ul {
+	margin-bottom: 9px;
+}
+
+.navmenu .label {
+	font-weight: inherit;
+}
+
+.menuheading {
+	font-weight: bold;
+	background-color: #f0f0f0;
+	border-bottom: 1px solid #3c78b5;
+	padding: 4px 4px 2px 4px;
+}
+
+.menuitems {
+	padding: 4px 4px 20px 4px;
+}
+
+.feedbackPanelERROR {
+	color: red;
+}
+
+.grid {
+	margin: 2px 0px 5px 0px;
+	border-collapse: collapse;
+}
+
+.grid th {
+	border: 1px solid #ccc;
+	padding: 2px 4px 2px 4px;
+	background: #f0f0f0;
+	text-align: center;
+}
+
+.grid td {
+	border: 1px solid #ccc;
+	padding: 3px 4px 3px 4px;
+}
+
+/* panel macro uses this */
+.panel {
+	border: 1px dashed chocolate;
+	padding: 0;
+}
+
+.panelHeader {
+	padding: 5px;
+	text-align: center;
+	background-color: wheat;
+	border-bottom: inherit;
+}
+
+.panelContent {
+	padding: 5px;
+
+}
+
+/* code macro uses this */
+
+.code {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding: 5px 5px 5px 5px;
+  color: inherit;
+  background-color: #F0F0F0;
+  border: 1px dashed black;
+  font-family: courier, courier new, monospace;
+  font-size: 12px;
+  line-height: 100%;
+  white-space: pre;
+  width: 98%;
+  overflow: auto;
+  overflow: scroll -moz-scrollbars-horizontal;
+  overflow-x: auto;
+}
+
+/*pre {
+	padding: 0px;
+	margin-top: 5px;
+	margin-left: 15px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	text-align: left;
+	width: 100%;
+}*/
+
+.codeHeader {
+	padding: 5px;
+	text-align: center;
+	background-color: wheat;
+	border-bottom: inherit;
+}
+
+.codeContent {
+	padding: 5px;
+}
+
+.boxDiv {
+	width: 61.8%;
+	padding: 10px;
+}
+
+/* Search styles */
+
+.search-header {
+	/*margin-top: 20px;*/
+	background: wheat;
+	border-top: 1px solid chocolate;
+    padding-left:2px;
+    margin:0px;
+}
+
+.search-title {
+    font-size: 13px;
+    color: blue;
+}
+
+.search-content {
+    color: dimgray;
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: red;
+}
+
+/* for the user links */
+a:link.user_link {
+	color: inherit;
+	text-decoration: none;
+}
+
+a:visited.user_link {
+	color: inherit;
+	text-decoration: none;
+}
+
