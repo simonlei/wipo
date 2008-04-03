@@ -1,0 +1,2 @@
+gem install sqlite3-ruby
+gem install ferret
