@@ -1,5 +1,3 @@
-require File.join(File.dirname(__FILE__), '../vendor/plugins/engines/boot')
-
 # Be sure to restart your server when you modify this file
 
 # Uncomment below to force Rails into production mode when
@@ -11,6 +9,7 @@ RAILS_GEM_VERSION = '2.0.2' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
+require File.join(File.dirname(__FILE__), '../vendor/plugins/engines/boot')
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
